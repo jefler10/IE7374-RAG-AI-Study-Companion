@@ -236,10 +236,15 @@ __pycache__/
 *.safetensors
 
 # Generated Outputs
-outputs/
+outputs/*
+!outputs/sample_outputs.json
+!outputs/human_evaluation_template.csv
+!outputs/README.md
 
 # Vector Database / Embeddings
-data/embeddings/
+data/processed/embeddings.npy
+*.faiss
+*.index
 
 # Environment Variables
 .env
