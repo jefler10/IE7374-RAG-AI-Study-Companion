@@ -1,0 +1,19 @@
+A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self.
+
+The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell.
+
+Fluid Mosaic Model
+
+In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules.
+
+The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment.
+
+The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules.
+
+Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites.
+
+Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another.
+
+Summary
+
+The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.
