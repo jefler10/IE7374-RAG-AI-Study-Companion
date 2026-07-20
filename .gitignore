@@ -248,3 +248,5 @@ data/processed/embeddings.npy
 
 # Environment Variables
 .env
+
+.DS_Store
