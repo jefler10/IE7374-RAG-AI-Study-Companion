@@ -14,8 +14,8 @@ class StudyMaterialGenerator:
     def generate(
         self,
         instruction: str,
-        context: str | None = None,
-        max_new_tokens: int = 180,
+        context=None,
+        max_new_tokens: int = 120,
     ) -> str:
         """Generate text with or without retrieved context."""
         if not instruction.strip():
@@ -43,6 +43,9 @@ class StudyMaterialGenerator:
             max_new_tokens=max_new_tokens,
             num_beams=4,
             do_sample=False,
+            repetition_penalty=1.2,
+            no_repeat_ngram_size=3,
+            early_stopping=True,
         )
 
         return self.tokenizer.decode(
@@ -62,7 +65,11 @@ def main() -> None:
 
     output = generator.generate(
         instruction=(
-            "Create three term-definition flashcards about the cell membrane."
+            "Create 3 different flashcards from the context. "
+            "Use this exact format:\n"
+            "1. Term: ... Definition: ...\n"
+            "2. Term: ... Definition: ...\n"
+            "3. Term: ... Definition: ..."
         ),
         context=sample_context,
     )
