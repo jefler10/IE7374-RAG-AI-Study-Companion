@@ -441,7 +441,7 @@ k = 5
 
 ## Evaluation Plan
 
-At least one team member will independently review selected baseline and RAG outputs.
+Both team members will independently review selected baseline and RAG outputs.
 
 Each output will be scored from 1 to 5 for:
 
