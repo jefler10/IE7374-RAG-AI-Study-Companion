@@ -1,0 +1,9 @@
+sample_id,task,condition,factual_grounding_1_to_5,relevance_1_to_5,readability_1_to_5,completeness_1_to_5,usefulness_1_to_5,reviewer_name,comments
+1,summary,baseline_output,,,,,,,
+1,summary,rag_output,,,,,,,
+2,flashcards,baseline_output,,,,,,,
+2,flashcards,rag_output,,,,,,,
+3,multiple_choice,baseline_output,,,,,,,
+3,multiple_choice,rag_output,,,,,,,
+4,concept_explanation,baseline_output,,,,,,,
+4,concept_explanation,rag_output,,,,,,,

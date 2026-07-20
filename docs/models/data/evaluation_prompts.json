@@ -1,0 +1,32 @@
+[
+  {
+    "prompt_id": "cell_membrane_01",
+    "topic": "cell membranes",
+    "query": "What is the purpose of the cell membrane?",
+    "expected_source_topic": "cell membranes"
+  },
+  {
+    "prompt_id": "diffusion_01",
+    "topic": "diffusion",
+    "query": "How does diffusion move particles?",
+    "expected_source_topic": "diffusion"
+  },
+  {
+    "prompt_id": "photosynthesis_01",
+    "topic": "photosynthesis",
+    "query": "What is the role of sunlight in photosynthesis?",
+    "expected_source_topic": "photosynthesis"
+  },
+  {
+    "prompt_id": "dna_01",
+    "topic": "DNA",
+    "query": "What information does DNA contain?",
+    "expected_source_topic": "DNA"
+  },
+  {
+    "prompt_id": "cellular_respiration_01",
+    "topic": "cellular respiration",
+    "query": "Why do cells perform cellular respiration?",
+    "expected_source_topic": "cellular respiration"
+  }
+]
