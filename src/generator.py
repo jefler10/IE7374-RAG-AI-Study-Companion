@@ -15,19 +15,30 @@ class StudyMaterialGenerator:
         self,
         instruction: str,
         context=None,
-        max_new_tokens: int = 120,
+        max_new_tokens: int = 250,
     ) -> str:
         """Generate text with or without retrieved context."""
         if not instruction.strip():
             raise ValueError("Instruction cannot be empty.")
 
-        if context:
-            prompt = (
-                "Use only the biology textbook context below to complete "
-                "the instruction.\n\n"
-                f"Context:\n{context}\n\n"
-                f"Instruction:\n{instruction}"
-            )
+        if context: 
+             prompt = f"""
+        You are a biology teaching assistant.
+
+        Use ONLY the information in the context below.
+
+        Follow the task instructions exactly.
+        Do not copy sentences from the context.
+        Generate a complete answer suitable for an introductory biology student.
+
+        Context:
+        {context}
+
+        Task:
+        {instruction}
+
+        Response:
+        """
         else:
             prompt = instruction
 
@@ -35,17 +46,15 @@ class StudyMaterialGenerator:
             prompt,
             return_tensors="pt",
             truncation=True,
-            max_length=512,
+            max_length=1024,
         )
 
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
-            num_beams=4,
-            do_sample=False,
+            temperature=0.7,
+            do_sample=True,
             repetition_penalty=1.2,
-            no_repeat_ngram_size=3,
-            early_stopping=True,
         )
 
         return self.tokenizer.decode(
