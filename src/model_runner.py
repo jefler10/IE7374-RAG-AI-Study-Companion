@@ -13,7 +13,7 @@ TEST_CASES = [
         "task": "summary",
         "query": "What is the purpose of the cell membrane?",
         "instruction": """
-Write a concise student-friendly summary explaining the purpose 
+Write a concise student-friendly summary explaining the purpose
 and structure of the cell membrane.
 
 Use only the provided context.
@@ -22,7 +22,7 @@ Use only the provided context.
     {
         "task": "flashcards",
         "query": "What are the main components of the plasma membrane?",
-        "instruction":  """
+        "instruction": """
 Create exactly three flashcards.
 
 Format each flashcard as:
@@ -98,12 +98,34 @@ Use only the provided context.
         "task": "comparison",
         "query": "How is the plasma membrane selectively permeable?",
         "instruction": """
-Compare selective permeability and general permeability.
+Explain selective permeability.
 
-Explain:
+Include:
 - What selective permeability means
-- How the membrane controls movement of materials
-- Why this is important for cells
+- How the membrane controls the movement of materials
+- Why selective permeability is important for cells
+
+Write 3-5 sentences.
+
+Use only the provided context.
+""",
+    },
+    {
+        "task": "concept_explanation",
+        "query": (
+            "What is diffusion and how does it move substances "
+            "across cell membranes?"
+        ),
+        "instruction": """
+Explain diffusion in clear language for an introductory biology student.
+
+Include:
+- What diffusion means
+- The direction substances move
+- Whether diffusion requires cellular energy
+- How diffusion relates to the plasma membrane
+
+Write 3-5 sentences.
 
 Use only the provided context.
 """,
@@ -117,6 +139,7 @@ def combine_context(passages: list[dict]) -> str:
 
 
 def main() -> None:
+    """Run baseline and retrieval-augmented generation test cases."""
     retriever = PassageRetriever()
     generator = StudyMaterialGenerator()
 
@@ -154,7 +177,7 @@ def main() -> None:
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
     with OUTPUT_FILE.open("w", encoding="utf-8") as output_file:
-        json.dump(results, output_file, indent=2)
+        json.dump(results, output_file, indent=2, ensure_ascii=False)
 
     print(f"Saved {len(results)} results to {OUTPUT_FILE}")
 
