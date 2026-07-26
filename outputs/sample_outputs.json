@@ -13,8 +13,8 @@
         "retrieval_score": 0.5188385248184204
       }
     ],
-    "baseline_output": "The cell membrane is a cell membrane that serves as the cell wall of an organism. The membrane is made of a cell membrane. The cell membrane is a kind of cell membrane.",
-    "rag_output": "The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. The membrane consists mainly"
+    "baseline_output": "Cell membranes are membranes in the skin.",
+    "rag_output": "The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another."
   },
   {
     "task": "flashcards",
@@ -30,8 +30,8 @@
         "retrieval_score": 0.6517461538314819
       }
     ],
-    "baseline_output": "The physics of radiation is in the form of a chemical change.",
-    "rag_output": "Peripheral proteins may serve as channels or pumps that move materials into or out of the cell. Carbohydrates are another major component of plasma membranes."
+    "baseline_output": "A person is likely to be able to find a book on the Internet by searching for \"earth\" and \"time\" or the title of a scientific work.",
+    "rag_output": "Phylogenetic diagrams, a model for cells, and a model for molecules."
   },
   {
     "task": "multiple_choice",
@@ -47,8 +47,8 @@
         "retrieval_score": 0.6701256036758423
       }
     ],
-    "baseline_output": "Question: Which is the most likely occupation of the writer?Options:A He/She.B He/She.C He/She.D He/She.Answer:D",
-    "rag_output": "Which of the following is true according to the passage?"
+    "baseline_output": "Question: Which of the following is TRUE?Options:A The teacher asked for directions to the office.B The teacher asked the assistant to do the work.C The assistant went to the workstation to do the work.D The assistant worked on the workstation.Answer:D",
+    "rag_output": "Which of the following describes the shape of the plasma membrane?"
   },
   {
     "task": "concept_explanation",
@@ -64,8 +64,8 @@
         "retrieval_score": 0.557421863079071
       }
     ],
-    "baseline_output": "The model describes the mechanism responsible for the photosynthesis of fish. The model describes the major components involved in the photosynthesis process. The model describes the main components involved in the biosynthesis process, including the photosynthesis process. The model describes the basic principles of the model.",
-    "rag_output": "The fluid mosaic model of the plasma membrane."
+    "baseline_output": "The model describes how a cell's water in the fluid is pumped out of the cell's aqueous solution. The model also describes how the membrane fluidity is determined. The model describes the physical properties of the fluid. The model describes the physical properties of the water. The model describes the properties of the membrane fluid.",
+    "rag_output": "The model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates."
   },
   {
     "task": "definition",
@@ -81,8 +81,8 @@
         "retrieval_score": 0.6012490391731262
       }
     ],
-    "baseline_output": "Membrane proteins are a key component of the membrane and are active mediators of cell division.",
-    "rag_output": "Their function in the plasma membrane."
+    "baseline_output": "Membrane proteins are a class of proteins that are present in the plasma membrane but can also act as mediators of other membrane proteins in the cell.",
+    "rag_output": "Membrane proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another."
   },
   {
     "task": "comparison",
@@ -98,8 +98,8 @@
         "retrieval_score": 0.7586274147033691
       }
     ],
-    "baseline_output": "Specificity of a cell membrane controls the movement of materials.",
-    "rag_output": "What selective permeability means."
+    "baseline_output": "Selective permeability is important for cells because it controls cell movement.",
+    "rag_output": "Selective permeability means the interior of a cell is not identical to the exterior of the membrane."
   },
   {
     "task": "concept_explanation",
@@ -115,7 +115,7 @@
         "retrieval_score": 0.7486425042152405
       }
     ],
-    "baseline_output": "The four main cellular processes involved in photosynthesis are photosynthesis, photosynthesis, and photodegradation.",
-    "rag_output": "The direction substances move depends on the type of membrane."
+    "baseline_output": "This passage will teach the introductory biology of diffusion. The introductory biology course is intended to help students get familiar with the basic principles of diffusion.",
+    "rag_output": "What diffusion means."
   }
 ]
