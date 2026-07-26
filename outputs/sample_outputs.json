@@ -2,7 +2,7 @@
   {
     "task": "summary",
     "query": "What is the purpose of the cell membrane?",
-    "instruction": "\nWrite a concise student-friendly summary explaining the purpose \nand structure of the cell membrane.\n\nUse only the provided context.\n",
+    "instruction": "\nWrite a concise student-friendly summary explaining the purpose\nand structure of the cell membrane.\n\nUse only the provided context.\n",
     "top_k": 1,
     "retrieved_passages": [
       {
@@ -13,8 +13,8 @@
         "retrieval_score": 0.5188385248184204
       }
     ],
-    "baseline_output": "The cell membrane is a layer of water that contains cell walls and other materials. These materials are used for cell membranes, but they can also be used to form the cell surface. The membrane is not a single part of the cell wall.",
-    "rag_output": "Cell membranes are the vascular units that carry information by transporting materials into or out of the cell."
+    "baseline_output": "Cell membranes are a structural system found within the cell membrane. Each cell membrane contains a special membrane-based component that uses a special cell ionizing agent to control cell division.",
+    "rag_output": "The plasma membrane is a membrane that is composed mostly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward."
   },
   {
     "task": "flashcards",
@@ -30,8 +30,8 @@
         "retrieval_score": 0.6517461538314819
       }
     ],
-    "baseline_output": "The following are a list of acronyms:",
-    "rag_output": "The modern understanding of the plasma membrane is described by the fluid mosaic model."
+    "baseline_output": "As you can see, the most important thing to remember is that your brain is constantly working on new information.",
+    "rag_output": "The plasma membrane is of a phospholipid bilayer with hydrophobic fatty acid tails facing inward."
   },
   {
     "task": "multiple_choice",
@@ -43,12 +43,12 @@
         "passage_id": "cell_membrane_001",
         "topic": "Cell Membrane",
         "source_file": "cell_membrane.txt",
-        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell\u2019s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
         "retrieval_score": 0.6701256036758423
       }
     ],
-    "baseline_output": "Question: The best title for the passage might be _Options:A A Guide to a Healthy LifeB The Advantages of Organic FoodC The importance of Organic FoodD The Advantages of Organic FoodAnswer:A",
-    "rag_output": "A."
+    "baseline_output": "Question: Which of the following is NOT true according to the passage?Options:A The sentence \"B\" is true.B The sentence \"C\" is true.C The sentence \"D\" is true.D The sentence \"A\" is true.Answer:C",
+    "rag_output": "Question: Which type of molecules are able to move laterally within the plasma membrane?Options:A Carbohydrates.B Phospholipids.C Fatty acid tails.D Cholesterol.Answer:A"
   },
   {
     "task": "concept_explanation",
@@ -60,12 +60,12 @@
         "passage_id": "cell_membrane_000",
         "topic": "Cell Membrane",
         "source_file": "cell_membrane.txt",
-        "text": "A cell\u2019s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system\u2019s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
+        "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
         "retrieval_score": 0.5574218034744263
       }
     ],
-    "baseline_output": "The study describes the physical properties of fluids in the human body. The model describes the general physical properties of fluids and describes the major components involved in the fluid mosaic.",
-    "rag_output": "The fluid mosaic model of the plasma membrane explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates."
+    "baseline_output": "The model describes the fluid mosaic process.",
+    "rag_output": "The model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates."
   },
   {
     "task": "definition",
@@ -81,24 +81,41 @@
         "retrieval_score": 0.6012490391731262
       }
     ],
-    "baseline_output": "Membrane proteins are important components of cellular membranes.",
-    "rag_output": "Peripheral proteins are located on the exterior or interior surfaces of the membrane."
+    "baseline_output": "Membrane proteins are the structural units of the plasma membrane.",
+    "rag_output": "Their function in the plasma membrane."
   },
   {
     "task": "comparison",
     "query": "How is the plasma membrane selectively permeable?",
-    "instruction": "\nCompare selective permeability and general permeability.\n\nExplain:\n- What selective permeability means\n- How the membrane controls movement of materials\n- Why this is important for cells\n\nUse only the provided context.\n",
+    "instruction": "\nExplain selective permeability.\n\nInclude:\n- What selective permeability means\n- How the membrane controls the movement of materials\n- Why selective permeability is important for cells\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
     "top_k": 1,
     "retrieved_passages": [
       {
         "passage_id": "cell_membrane_001",
         "topic": "Cell Membrane",
         "source_file": "cell_membrane.txt",
-        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell\u2019s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
         "retrieval_score": 0.6123231649398804
       }
     ],
-    "baseline_output": "Selective permeability is the degree to which a cell's membrane is free of substances that may cause injury or damage.",
-    "rag_output": "Selective permeability means the membrane controls movement of materials."
+    "baseline_output": "Selective permeability is the ability to regulate the physical body's ability to transfer substances through its membrane. The membrane is a protective barrier to substances from movement and a barrier to the transfer of substances. It controls the movement of materials by regulating the membrane's ability to transfer substances.",
+    "rag_output": "The plasma membrane is made up primarily of two layers of phospholipid molecules with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol."
+  },
+  {
+    "task": "concept_explanation",
+    "query": "What is diffusion and how does it move substances across cell membranes?",
+    "instruction": "\nExplain diffusion in clear language for an introductory biology student.\n\nInclude:\n- What diffusion means\n- The direction substances move\n- Whether diffusion requires cellular energy\n- How diffusion relates to the plasma membrane\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
+    "top_k": 1,
+    "retrieved_passages": [
+      {
+        "passage_id": "cell_membrane_001",
+        "topic": "Cell Membrane",
+        "source_file": "cell_membrane.txt",
+        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+        "retrieval_score": 0.4864867925643921
+      }
+    ],
+    "baseline_output": "Explain the fundamentals of diffusion.",
+    "rag_output": "What diffusion means."
   }
 ]
