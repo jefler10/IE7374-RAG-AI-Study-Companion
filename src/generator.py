@@ -21,24 +21,24 @@ class StudyMaterialGenerator:
         if not instruction.strip():
             raise ValueError("Instruction cannot be empty.")
 
-        if context: 
-             prompt = f"""
-        You are a biology teaching assistant.
+        if context:
+            prompt = f"""
+You are a biology teaching assistant.
 
-        Use ONLY the information in the context below.
+Use ONLY the information in the context below.
 
-        Follow the task instructions exactly.
-        Do not copy sentences from the context.
-        Generate a complete answer suitable for an introductory biology student.
+Follow the task instructions exactly.
+Do not copy sentences from the context.
+Generate a complete answer suitable for an introductory biology student.
 
-        Context:
-        {context}
+Context:
+{context}
 
-        Task:
-        {instruction}
+Task:
+{instruction}
 
-        Response:
-        """
+Response:
+"""
         else:
             prompt = instruction
 
@@ -52,9 +52,11 @@ class StudyMaterialGenerator:
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
-            temperature=0.7,
-            do_sample=True,
+            num_beams=4,
+            do_sample=False,
             repetition_penalty=1.2,
+            no_repeat_ngram_size=3,
+            early_stopping=True,
         )
 
         return self.tokenizer.decode(
