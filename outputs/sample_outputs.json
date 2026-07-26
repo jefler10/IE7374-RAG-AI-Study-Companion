@@ -13,8 +13,8 @@
         "retrieval_score": 0.5188385248184204
       }
     ],
-    "baseline_output": "The structure of the cell membrane is characterized by the following four structural features:",
-    "rag_output": "The plasma membrane is composed of a phospholipid bilayer with hydrophobic fatty acid tails facing inward."
+    "baseline_output": "The cell membrane is a layer of water that contains cell walls and other materials. These materials are used for cell membranes, but they can also be used to form the cell surface. The membrane is not a single part of the cell wall.",
+    "rag_output": "Cell membranes are the vascular units that carry information by transporting materials into or out of the cell."
   },
   {
     "task": "flashcards",
@@ -30,8 +30,8 @@
         "retrieval_score": 0.6517461538314819
       }
     ],
-    "baseline_output": "The flashcards are a cross section of the terms C.T. and .T..A..",
-    "rag_output": "Plasma membranes are a key component of the fluid mosaic model."
+    "baseline_output": "The following are a list of acronyms:",
+    "rag_output": "The modern understanding of the plasma membrane is described by the fluid mosaic model."
   },
   {
     "task": "multiple_choice",
@@ -47,8 +47,8 @@
         "retrieval_score": 0.6701256036758423
       }
     ],
-    "baseline_output": "Question: Which of the following is not true?Options:A It is very important to be smart.B It is very important to be careful.C It is very important to be careful.D It is very important to be careful.Answer:A",
-    "rag_output": "Which of the following is the function of the plasma membrane?"
+    "baseline_output": "Question: The best title for the passage might be _Options:A A Guide to a Healthy LifeB The Advantages of Organic FoodC The importance of Organic FoodD The Advantages of Organic FoodAnswer:A",
+    "rag_output": "A."
   },
   {
     "task": "concept_explanation",
@@ -64,8 +64,8 @@
         "retrieval_score": 0.5574218034744263
       }
     ],
-    "baseline_output": "The model provides information on a number of important components involved in forming a mosaic of cells.",
-    "rag_output": "The model describes the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates"
+    "baseline_output": "The study describes the physical properties of fluids in the human body. The model describes the general physical properties of fluids and describes the major components involved in the fluid mosaic.",
+    "rag_output": "The fluid mosaic model of the plasma membrane explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates."
   },
   {
     "task": "definition",
@@ -81,8 +81,8 @@
         "retrieval_score": 0.6012490391731262
       }
     ],
-    "baseline_output": "Membrane proteins are a type of membrane protein. They have a role in the cellular cycle.",
-    "rag_output": "Their function in the plasma membrane"
+    "baseline_output": "Membrane proteins are important components of cellular membranes.",
+    "rag_output": "Peripheral proteins are located on the exterior or interior surfaces of the membrane."
   },
   {
     "task": "comparison",
@@ -98,7 +98,7 @@
         "retrieval_score": 0.6123231649398804
       }
     ],
-    "baseline_output": "Specific permeability is a measure of how thin the membrane is.",
-    "rag_output": "What selective permeability means."
+    "baseline_output": "Selective permeability is the degree to which a cell's membrane is free of substances that may cause injury or damage.",
+    "rag_output": "Selective permeability means the membrane controls movement of materials."
   }
 ]
