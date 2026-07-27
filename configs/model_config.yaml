@@ -1,14 +1,18 @@
 generator:
   model_name: google/flan-t5-base
-  max_input_length: 512
-  max_new_tokens: 180
+  max_input_length: 1024
+  max_new_tokens: 250
   num_beams: 4
   do_sample: false
+  repetition_penalty: 1.2
+  no_repeat_ngram_size: 3
+  early_stopping: true
 
 retrieval:
   embedding_model: sentence-transformers/all-MiniLM-L6-v2
   similarity_metric: cosine
-  top_k_values:
+  current_top_k: 1
+  planned_top_k_values:
     - 1
     - 3
     - 5
@@ -20,4 +24,6 @@ preprocessing:
 paths:
   raw_data: data/raw
   processed_data: data/processed/passages.jsonl
+  passage_metadata: data/processed/passage_metadata.json
+  embeddings: data/processed/embeddings.npy
   output_file: outputs/sample_outputs.json
