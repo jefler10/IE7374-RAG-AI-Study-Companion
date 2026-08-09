@@ -22,7 +22,14 @@ class StudyMaterialGenerator:
         self.early_stopping = generator_config["early_stopping"]
 
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+
+        # If the prompt is too long, keep the beginning of the prompt.
+        # The task instructions are placed first so they are preserved.
+        self.tokenizer.truncation_side = "right"
+
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(
+            self.model_name
+        )
 
     def generate(
         self,
@@ -36,24 +43,43 @@ class StudyMaterialGenerator:
 
         if context:
             prompt = f"""
-You are a biology teaching assistant.
+You are an introductory biology study assistant.
 
-Use ONLY the information in the context below.
+Complete the task below exactly as requested.
+Produce the requested answer itself.
+Do not describe the task.
+Use complete sentences unless the requested format says otherwise.
+Use only information supported by the textbook context.
 
-Follow the task instructions exactly.
-Do not copy sentences from the context.
-Generate a complete answer suitable for an introductory biology student.
-
-Context:
-{context}
-
-Task:
+TASK:
 {instruction}
 
-Response:
+TEXTBOOK CONTEXT:
+{context}
+
+ANSWER:
 """
         else:
-            prompt = instruction
+            # The baseline has no retrieved textbook context, so remove
+            # the context-only instruction before sending it to FLAN-T5.
+            baseline_instruction = instruction.replace(
+                "Use only the provided context.",
+                "",
+            ).strip()
+
+            prompt = f"""
+You are an introductory biology study assistant.
+
+Complete the task below exactly as requested.
+Produce the requested answer itself.
+Do not describe the task.
+Use complete sentences unless the requested format says otherwise.
+
+TASK:
+{baseline_instruction}
+
+ANSWER:
+"""
 
         inputs = self.tokenizer(
             prompt,
@@ -92,11 +118,17 @@ def main() -> None:
 
     output = generator.generate(
         instruction=(
-            "Create 3 different flashcards from the context. "
+            "Create exactly 3 flashcards from the textbook context.\n\n"
             "Use this exact format:\n"
-            "1. Term: ... Definition: ...\n"
-            "2. Term: ... Definition: ...\n"
-            "3. Term: ... Definition: ..."
+            "Flashcard 1:\n"
+            "Term:\n"
+            "Definition:\n\n"
+            "Flashcard 2:\n"
+            "Term:\n"
+            "Definition:\n\n"
+            "Flashcard 3:\n"
+            "Term:\n"
+            "Definition:"
         ),
         context=sample_context,
     )
