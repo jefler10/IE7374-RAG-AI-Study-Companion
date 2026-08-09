@@ -3,119 +3,623 @@
     "task": "summary",
     "query": "What is the purpose of the cell membrane?",
     "instruction": "\nWrite a concise student-friendly summary explaining the purpose\nand structure of the cell membrane.\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "cell_membrane_002",
-        "topic": "Cell Membrane",
-        "source_file": "cell_membrane.txt",
-        "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
-        "retrieval_score": 0.5188385248184204
+    "baseline_output": "The cell membrane is a layer of the cell membrane that surrounds the nucleus of a cell.",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.5188385248184204
+          }
+        ],
+        "rag_output": "The plasma membrane consists of a phospholipid bilayer with hydrophobic fatty acid tails facing inward."
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.5188385248184204
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.5037787556648254
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.5018041729927063
+          }
+        ],
+        "rag_output": "The plasma membrane consists mainly of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol."
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.5188385248184204
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.5037787556648254
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.5018041729927063
+          },
+          {
+            "passage_id": "cell_membrane_000",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
+            "retrieval_score": 0.497265100479126
+          },
+          {
+            "passage_id": "passive_transport_007",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the cell. The material being transported is first attached to protein or glycoprotein receptors on the exterior surface of the plasma membrane. This allows the material that is needed by the cell to be removed from the extracellular fluid. The substances are then passed to specific integral proteins that facilitate their passage. Some of these integral proteins are collections of beta pleated sheets that form a pore or channel through the phospholipid bilayer. Others are carrier proteins which bind with the substance and aid its diffusion through the membrane. Channels The integral proteins involved in facilitated transport are collectively referred to as transport proteins, and they function as either channels for the material or carriers. In both cases, they are transmembrane proteins. Channels are specific for the substance that is being transported. Channel proteins have hydrophilic domains exposed to the intracellular and extracellular fluids; they additionally have a hydrophilic channel through their core that provides a hydrated opening through the membrane layers. Passage through the channel allows polar compounds to avoid the nonpolar central layer of the plasma membrane that would otherwise slow or prevent their entry into the cell. Aquaporins are channel proteins that allow water to pass through the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some",
+            "retrieval_score": 0.48252853751182556
+          }
+        ],
+        "rag_output": "membrane, they are asymmetric."
       }
-    ],
-    "baseline_output": "Cell membranes are membranes in the skin.",
-    "rag_output": "The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another."
+    }
   },
   {
     "task": "flashcards",
     "query": "What are the main components of the plasma membrane?",
     "instruction": "\nCreate exactly three flashcards.\n\nFormat each flashcard as:\n\nFlashcard 1:\nTerm:\nDefinition:\n\nFlashcard 2:\nTerm:\nDefinition:\n\nFlashcard 3:\nTerm:\nDefinition:\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "cell_membrane_002",
-        "topic": "Cell Membrane",
-        "source_file": "cell_membrane.txt",
-        "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
-        "retrieval_score": 0.6517461538314819
+    "baseline_output": "The following flashcards are based on the definition of a word: Flashcard 1: Definition",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6517461538314819
+          }
+        ],
+        "rag_output": "The modern understanding of the plasma membrane is described by the fluid mosaic model."
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6517461538314819
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6179786920547485
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.5976303815841675
+          }
+        ],
+        "rag_output": "The plasma membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward."
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6517461538314819
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6179786920547485
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.5976303815841675
+          },
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.5964211225509644
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.5500945448875427
+          }
+        ],
+        "rag_output": "The fluid mosaic model of the plasma membrane."
       }
-    ],
-    "baseline_output": "A person is likely to be able to find a book on the Internet by searching for \"earth\" and \"time\" or the title of a scientific work.",
-    "rag_output": "Phylogenetic diagrams, a model for cells, and a model for molecules."
+    }
   },
   {
     "task": "multiple_choice",
     "query": "How does the phospholipid bilayer help form the membrane?",
     "instruction": "\nCreate one multiple-choice question.\n\nFormat:\n\nQuestion:\n\nA.\nB.\nC.\nD.\n\nCorrect Answer:\n\nExplanation:\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "cell_membrane_001",
-        "topic": "Cell Membrane",
-        "source_file": "cell_membrane.txt",
-        "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
-        "retrieval_score": 0.6701256036758423
+    "baseline_output": "Question: Which of the following is TRUE according to the passage?Options:A A.B.C.D.A.",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6701256036758423
+          }
+        ],
+        "rag_output": "Which of the following is true about the plasma membrane?"
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6701256036758423
+          },
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.5414976477622986
+          },
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.5389857888221741
+          }
+        ],
+        "rag_output": "Which of the following is true about plasma membranes?"
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6701256036758423
+          },
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.5414976477622986
+          },
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.5389857888221741
+          },
+          {
+            "passage_id": "passive_transport_007",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the cell. The material being transported is first attached to protein or glycoprotein receptors on the exterior surface of the plasma membrane. This allows the material that is needed by the cell to be removed from the extracellular fluid. The substances are then passed to specific integral proteins that facilitate their passage. Some of these integral proteins are collections of beta pleated sheets that form a pore or channel through the phospholipid bilayer. Others are carrier proteins which bind with the substance and aid its diffusion through the membrane. Channels The integral proteins involved in facilitated transport are collectively referred to as transport proteins, and they function as either channels for the material or carriers. In both cases, they are transmembrane proteins. Channels are specific for the substance that is being transported. Channel proteins have hydrophilic domains exposed to the intracellular and extracellular fluids; they additionally have a hydrophilic channel through their core that provides a hydrated opening through the membrane layers. Passage through the channel allows polar compounds to avoid the nonpolar central layer of the plasma membrane that would otherwise slow or prevent their entry into the cell. Aquaporins are channel proteins that allow water to pass through the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some",
+            "retrieval_score": 0.5151071548461914
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.5059434175491333
+          }
+        ],
+        "rag_output": "transport."
       }
-    ],
-    "baseline_output": "Question: Which of the following is TRUE?Options:A The teacher asked for directions to the office.B The teacher asked the assistant to do the work.C The assistant went to the workstation to do the work.D The assistant worked on the workstation.Answer:D",
-    "rag_output": "Which of the following describes the shape of the plasma membrane?"
+    }
   },
   {
     "task": "concept_explanation",
     "query": "What does the fluid mosaic model describe?",
-    "instruction": "\nExplain the fluid mosaic model.\n\nInclude:\n- What the model describes\n- The major components involved\n- Why membrane fluidity is important\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "cell_membrane_000",
-        "topic": "Cell Membrane",
-        "source_file": "cell_membrane.txt",
-        "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
-        "retrieval_score": 0.557421863079071
+    "instruction": "\nExplain the fluid mosaic model.\n\nInclude:\n\n- What the model describes\n- The major components involved\n- Why membrane fluidity is important\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
+    "baseline_output": "The fluid mosaic model describes the structure and function of the membrane.",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_000",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
+            "retrieval_score": 0.557421863079071
+          }
+        ],
+        "rag_output": "The model describes the structure and functions of the plasma membrane."
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_000",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
+            "retrieval_score": 0.557421863079071
+          },
+          {
+            "passage_id": "passive_transport_013",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "particles. In a situation in which solutions of two different osmolarities are separated by a membrane permeable to water, though not to the solute, water will move from the side of the membrane with lower osmolarity (and more water) to the side with higher osmolarity (and less water). This effect makes sense if you remember that the solute cannot move across the membrane, and thus the only component in the system that can move—the water—moves along its own concentration gradient. An important distinction that concerns living systems is that osmolarity measures the number of particles (which may be molecules) in a solution. Therefore, a solution that is cloudy with cells may have a lower osmolarity than a solution that is clear, if the second solution contains more dissolved molecules than there are cells. Hypotonic Solutions Three terms—hypotonic, isotonic, and hypertonic—are used to relate the osmolarity of a cell to the osmolarity of the extracellular fluid that contains the cells. In a hypotonic situation, the extracellular fluid has lower osmolarity than the fluid inside the cell, and water enters the cell. (In living systems, the point of reference is always the cytoplasm, so the prefix hypo- means that the extracellular fluid has a lower concentration of solutes, or a lower osmolarity, than the cell cytoplasm.) It also means that the extracellular fluid has a higher concentration of water in the solution than does the cell. In this situation, water will follow its concentration gradient and enter the cell. Hypertonic Solutions As",
+            "retrieval_score": 0.3444545865058899
+          },
+          {
+            "passage_id": "passive_transport_015",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "movement; therefore, there is no change in the size of the cell. In a hypertonic solution, water leaves a cell and the cell shrinks. If either the hypo- or hyper- condition goes to excess, the cell’s functions become compromised, and the cell may be destroyed. A red blood cell will burst, or lyse, when it swells beyond the plasma membrane’s capability to expand. Remember, the membrane resembles a mosaic, with discrete spaces between the molecules composing it. If the cell swells, and the spaces between the lipids and proteins become too large, the cell will break apart. In contrast, when excessive amounts of water leave a red blood cell, the cell shrinks, or crenates. This has the effect of concentrating the solutes left in the cell, making the cytosol denser and interfering with diffusion within the cell. The cell’s ability to function will be compromised and may also result in the death of the cell. Various living things have ways of controlling the effects of osmosis—a mechanism called osmoregulation. Some organisms, such as plants, fungi, bacteria, and some protists, have cell walls that surround the plasma membrane and prevent cell lysis in a hypotonic solution. The plasma membrane can only expand to the limit of the cell wall, so the cell will not lyse. In fact, the cytoplasm in plants is always slightly hypertonic to the cellular environment, and water will always enter a cell if water is available. This inflow of water produces turgor pressure, which stiffens the cell",
+            "retrieval_score": 0.32793667912483215
+          }
+        ],
+        "rag_output": "osmoregulation."
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_000",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "A cell’s plasma membrane defines the boundary of the cell and determines the nature of its contact with the environment. Cells exclude some substances, take in others, and excrete still others, all in controlled quantities. Plasma membranes enclose the borders of cells, but rather than being a static bag, they are dynamic and constantly in flux. The plasma membrane must be sufficiently flexible to allow certain cells, such as red blood cells and white blood cells, to change shape as they pass through narrow capillaries. In addition, the surface of the plasma membrane carries markers that allow cells to recognize one another, which is important during tissue and organ development and in the immune system’s distinction between self and non-self. The plasma membrane also carries receptors, which are attachment sites for specific substances that interact with the cell. Each receptor is structured to bind with a specific substance. Surface receptors can create changes inside the cell, including changes in enzymes involved in metabolic pathways. Receptors on the exterior surface of the plasma membrane interact with hormones or neurotransmitters and allow their messages to be transmitted into the cell. Fluid Mosaic Model In 1972, S. J. Singer and Garth L. Nicolson proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules",
+            "retrieval_score": 0.557421863079071
+          },
+          {
+            "passage_id": "passive_transport_013",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "particles. In a situation in which solutions of two different osmolarities are separated by a membrane permeable to water, though not to the solute, water will move from the side of the membrane with lower osmolarity (and more water) to the side with higher osmolarity (and less water). This effect makes sense if you remember that the solute cannot move across the membrane, and thus the only component in the system that can move—the water—moves along its own concentration gradient. An important distinction that concerns living systems is that osmolarity measures the number of particles (which may be molecules) in a solution. Therefore, a solution that is cloudy with cells may have a lower osmolarity than a solution that is clear, if the second solution contains more dissolved molecules than there are cells. Hypotonic Solutions Three terms—hypotonic, isotonic, and hypertonic—are used to relate the osmolarity of a cell to the osmolarity of the extracellular fluid that contains the cells. In a hypotonic situation, the extracellular fluid has lower osmolarity than the fluid inside the cell, and water enters the cell. (In living systems, the point of reference is always the cytoplasm, so the prefix hypo- means that the extracellular fluid has a lower concentration of solutes, or a lower osmolarity, than the cell cytoplasm.) It also means that the extracellular fluid has a higher concentration of water in the solution than does the cell. In this situation, water will follow its concentration gradient and enter the cell. Hypertonic Solutions As",
+            "retrieval_score": 0.3444545865058899
+          },
+          {
+            "passage_id": "passive_transport_015",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "movement; therefore, there is no change in the size of the cell. In a hypertonic solution, water leaves a cell and the cell shrinks. If either the hypo- or hyper- condition goes to excess, the cell’s functions become compromised, and the cell may be destroyed. A red blood cell will burst, or lyse, when it swells beyond the plasma membrane’s capability to expand. Remember, the membrane resembles a mosaic, with discrete spaces between the molecules composing it. If the cell swells, and the spaces between the lipids and proteins become too large, the cell will break apart. In contrast, when excessive amounts of water leave a red blood cell, the cell shrinks, or crenates. This has the effect of concentrating the solutes left in the cell, making the cytosol denser and interfering with diffusion within the cell. The cell’s ability to function will be compromised and may also result in the death of the cell. Various living things have ways of controlling the effects of osmosis—a mechanism called osmoregulation. Some organisms, such as plants, fungi, bacteria, and some protists, have cell walls that surround the plasma membrane and prevent cell lysis in a hypotonic solution. The plasma membrane can only expand to the limit of the cell wall, so the cell will not lyse. In fact, the cytoplasm in plants is always slightly hypertonic to the cellular environment, and water will always enter a cell if water is available. This inflow of water produces turgor pressure, which stiffens the cell",
+            "retrieval_score": 0.32793667912483215
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.32329392433166504
+          },
+          {
+            "passage_id": "passive_transport_012",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "it. Returning to the beaker example, recall that it has a mixture of solutes on either side of the membrane. A principle of diffusion is that the molecules move around and will spread evenly throughout the medium if they can. However, only the material capable of getting through the membrane will diffuse through it. In this example, the solute cannot diffuse through the membrane, but the water can. Water has a concentration gradient in this system. Thus, water will diffuse down its concentration gradient, crossing the membrane to the side where it is less concentrated. This diffusion of water through the membrane—osmosis—will continue until the concentration gradient of water goes to zero or until the hydrostatic pressure of the water balances the osmotic pressure. Osmosis proceeds constantly in living systems. Tonicity Tonicity describes how an extracellular solution can change the volume of a cell by affecting osmosis. A solution's tonicity often directly correlates with the osmolarity of the solution. Osmolarity describes the total solute concentration of the solution. A solution with low osmolarity has a greater number of water molecules relative to the number of solute particles; a solution with high osmolarity has fewer water molecules with respect to solute particles. In a situation in which solutions of two different osmolarities are separated by a membrane permeable to water, though not to the solute, water will move from the side of the membrane with lower osmolarity (and more water) to the side with higher osmolarity (and less water). This effect",
+            "retrieval_score": 0.30944955348968506
+          }
+        ],
+        "rag_output": "osmoregulation."
       }
-    ],
-    "baseline_output": "The model describes how a cell's water in the fluid is pumped out of the cell's aqueous solution. The model also describes how the membrane fluidity is determined. The model describes the physical properties of the fluid. The model describes the physical properties of the water. The model describes the properties of the membrane fluid.",
-    "rag_output": "The model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates."
+    }
   },
   {
     "task": "definition",
     "query": "What are membrane proteins?",
-    "instruction": "\nExplain the role of membrane proteins.\n\nInclude:\n- What membrane proteins are\n- Where they are located\n- Their function in the plasma membrane\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "cell_membrane_002",
-        "topic": "Cell Membrane",
-        "source_file": "cell_membrane.txt",
-        "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
-        "retrieval_score": 0.6012490391731262
+    "instruction": "\nExplain the role of membrane proteins.\n\nInclude:\n\n- What membrane proteins are\n- Where they are located\n- Their function in the plasma membrane\n\nUse only the provided context.\n",
+    "baseline_output": "Membrane proteins are a type of membrane protein.",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6012490391731262
+          }
+        ],
+        "rag_output": "Peripheral proteins are located on the exterior or interior surfaces of the membrane"
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6012490391731262
+          },
+          {
+            "passage_id": "passive_transport_007",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the cell. The material being transported is first attached to protein or glycoprotein receptors on the exterior surface of the plasma membrane. This allows the material that is needed by the cell to be removed from the extracellular fluid. The substances are then passed to specific integral proteins that facilitate their passage. Some of these integral proteins are collections of beta pleated sheets that form a pore or channel through the phospholipid bilayer. Others are carrier proteins which bind with the substance and aid its diffusion through the membrane. Channels The integral proteins involved in facilitated transport are collectively referred to as transport proteins, and they function as either channels for the material or carriers. In both cases, they are transmembrane proteins. Channels are specific for the substance that is being transported. Channel proteins have hydrophilic domains exposed to the intracellular and extracellular fluids; they additionally have a hydrophilic channel through their core that provides a hydrated opening through the membrane layers. Passage through the channel allows polar compounds to avoid the nonpolar central layer of the plasma membrane that would otherwise slow or prevent their entry into the cell. Aquaporins are channel proteins that allow water to pass through the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some",
+            "retrieval_score": 0.5843496322631836
+          },
+          {
+            "passage_id": "passive_transport_008",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some tissues, sodium and chloride ions pass freely through open channels, whereas in other tissues a gate must be opened to allow passage. An example of this occurs in the kidney, where both forms of channels are found in different parts of the renal tubules. Cells involved in the transmission of electrical impulses, such as nerve and muscle cells, have gated channels for sodium, potassium, and calcium in their membranes. Opening and closing of these channels changes the relative concentrations on opposing sides of the membrane of these ions, resulting in the facilitation of electrical transmission along membranes (in the case of nerve cells) or in muscle contraction (in the case of muscle cells). Carrier Proteins Another type of protein embedded in the plasma membrane is a carrier protein. This aptly named protein binds a substance and, in doing so, triggers a change of its own shape, moving the bound molecule from the outside of the cell to its interior ; depending on the gradient, the material may move in the opposite direction. Carrier proteins are typically specific for a single substance. This selectivity adds to the overall selectivity of the plasma membrane. The exact mechanism for the change of shape",
+            "retrieval_score": 0.5786348581314087
+          }
+        ],
+        "rag_output": "Their function in the plasma membrane"
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "cell_membrane_002",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another. Summary The modern understanding of the plasma membrane is described by the fluid mosaic model. The membrane consists mainly of a phospholipid bilayer with hydrophobic fatty acid tails facing inward. Proteins are embedded within or attached to the membrane, and some transport materials into or out of the cell. Carbohydrates attached to proteins and lipids on the outer surface help cells identify one another. Cholesterol, fatty acid tail structure, proteins, and protein-carbohydrate complexes all contribute to the fluid and dynamic nature of the plasma membrane.",
+            "retrieval_score": 0.6012490391731262
+          },
+          {
+            "passage_id": "passive_transport_007",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the cell. The material being transported is first attached to protein or glycoprotein receptors on the exterior surface of the plasma membrane. This allows the material that is needed by the cell to be removed from the extracellular fluid. The substances are then passed to specific integral proteins that facilitate their passage. Some of these integral proteins are collections of beta pleated sheets that form a pore or channel through the phospholipid bilayer. Others are carrier proteins which bind with the substance and aid its diffusion through the membrane. Channels The integral proteins involved in facilitated transport are collectively referred to as transport proteins, and they function as either channels for the material or carriers. In both cases, they are transmembrane proteins. Channels are specific for the substance that is being transported. Channel proteins have hydrophilic domains exposed to the intracellular and extracellular fluids; they additionally have a hydrophilic channel through their core that provides a hydrated opening through the membrane layers. Passage through the channel allows polar compounds to avoid the nonpolar central layer of the plasma membrane that would otherwise slow or prevent their entry into the cell. Aquaporins are channel proteins that allow water to pass through the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some",
+            "retrieval_score": 0.5843496322631836
+          },
+          {
+            "passage_id": "passive_transport_008",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "the membrane at a very high rate. Channel proteins are either open at all times or they are “gated,” which controls the opening of the channel. The attachment of a particular ion to the channel protein may control the opening, or other mechanisms or substances may be involved. In some tissues, sodium and chloride ions pass freely through open channels, whereas in other tissues a gate must be opened to allow passage. An example of this occurs in the kidney, where both forms of channels are found in different parts of the renal tubules. Cells involved in the transmission of electrical impulses, such as nerve and muscle cells, have gated channels for sodium, potassium, and calcium in their membranes. Opening and closing of these channels changes the relative concentrations on opposing sides of the membrane of these ions, resulting in the facilitation of electrical transmission along membranes (in the case of nerve cells) or in muscle contraction (in the case of muscle cells). Carrier Proteins Another type of protein embedded in the plasma membrane is a carrier protein. This aptly named protein binds a substance and, in doing so, triggers a change of its own shape, moving the bound molecule from the outside of the cell to its interior ; depending on the gradient, the material may move in the opposite direction. Carrier proteins are typically specific for a single substance. This selectivity adds to the overall selectivity of the plasma membrane. The exact mechanism for the change of shape",
+            "retrieval_score": 0.5786348581314087
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.5715069770812988
+          },
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.4855536222457886
+          }
+        ],
+        "rag_output": "plasma membrane to function."
       }
-    ],
-    "baseline_output": "Membrane proteins are a class of proteins that are present in the plasma membrane but can also act as mediators of other membrane proteins in the cell.",
-    "rag_output": "Membrane proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts of cell-recognition sites. Carbohydrates are another major component of plasma membranes. They are found on the exterior surface of cells and are attached either to proteins, forming glycoproteins, or to lipids, forming glycolipids. Along with peripheral proteins, these carbohydrates form specialized sites that allow cells to recognize one another."
+    }
   },
   {
     "task": "comparison",
     "query": "How is the plasma membrane selectively permeable?",
-    "instruction": "\nExplain selective permeability.\n\nInclude:\n- What selective permeability means\n- How the membrane controls the movement of materials\n- Why selective permeability is important for cells\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "passive_transport_001",
-        "topic": "Passive Transport",
-        "source_file": "passive_transport.txt",
-        "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
-        "retrieval_score": 0.7586274147033691
+    "instruction": "\nExplain selective permeability.\n\nInclude:\n\n- What selective permeability means\n- How the membrane controls the movement of materials\n- Why selective permeability is important for cells\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
+    "baseline_output": "Selective permeability is important for cells because it controls the movement of materials.",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.7586274147033691
+          }
+        ],
+        "rag_output": "What selective permeability means."
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.7586274147033691
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.6792200803756714
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.6497670412063599
+          }
+        ],
+        "rag_output": "is at its highest concentration in the bottle; its lowest concentration is at the edges of the room."
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_001",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane is not identical to the exterior of the membrane. In fact, there is a considerable difference between the array of phospholipids and proteins between the two leaflets that form a membrane. On the interior of the membrane, some proteins serve to anchor the membrane to fibers of the cytoskeleton. There are peripheral proteins on the exterior of the membrane that bind elements of the extracellular matrix. Carbohydrates, attached to lipids or proteins, are also found on the exterior surface of the plasma membrane. These carbohydrate complexes help the cell bind substances that the cell needs in the extracellular fluid. This adds considerably to the selective nature of plasma membranes. Recall that plasma membranes are amphiphilic: They have hydrophilic and hydrophobic regions. This characteristic helps the movement of some materials through the membrane and hinders the movement of others. Lipid-soluble material with a low molecular weight can easily slip through the hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs.",
+            "retrieval_score": 0.7586274147033691
+          },
+          {
+            "passage_id": "passive_transport_000",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "Plasma membranes must allow certain substances to enter and leave a cell, and prevent some harmful materials from entering and some essential materials from leaving. In other words, plasma membranes are selectively permeable—they allow some substances to pass through, but not others. If they were to lose this selectivity, the cell would no longer be able to sustain itself, and it would be destroyed. Some cells require larger amounts of specific substances than do other cells; they must have a way of obtaining these materials from extracellular fluids. This may happen passively, as certain materials move back and forth, or the cell may have special mechanisms that facilitate transport. Some materials are so important to a cell that it spends some of its energy, hydrolyzing adenosine triphosphate (ATP), to obtain these materials. Red blood cells use some of their energy doing just that. All cells spend the majority of their energy to maintain an imbalance of sodium and potassium ions between the interior and exterior of the cell. The most direct forms of membrane transport are passive. Passive transport is a naturally occurring phenomenon and does not require the cell to exert any of its energy to accomplish the movement. In passive transport, substances move from an area of higher concentration to an area of lower concentration. A physical space in which there is a range of concentrations of a single substance is said to have a concentration gradient. Selective Permeability Plasma membranes are asymmetric: the interior of the membrane",
+            "retrieval_score": 0.6792200803756714
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.6497670412063599
+          },
+          {
+            "passage_id": "passive_transport_018",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "containing more than one substance, each type of molecule diffuses according to its own concentration gradient, independent of the diffusion of other substances. Many factors can affect the rate of diffusion, including concentration gradient, size of the particles that are diffusing, temperature of the system, and so on. In living systems, diffusion of substances into and out of cells is mediated by the plasma membrane. Some materials diffuse readily through the membrane, but others are hindered, and their passage is made possible by specialized proteins, such as channels and transporters. The chemistry of living things occurs in aqueous solutions, and balancing the concentrations of those solutions is an ongoing problem. In living systems, diffusion of some substances would be slow or difficult without membrane proteins that facilitate transport.",
+            "retrieval_score": 0.6137821078300476
+          },
+          {
+            "passage_id": "cell_membrane_001",
+            "topic": "Cell Membrane",
+            "source_file": "cell_membrane.txt",
+            "text": "proposed the fluid mosaic model of the plasma membrane. This model explains the structure and functions of the plasma membrane as a mosaic of components, including phospholipids, cholesterol, proteins, and carbohydrates. These components are able to flow and change position while maintaining the basic integrity of the membrane. Phospholipid molecules and embedded proteins can move laterally within the membrane. This fluidity is necessary for the activities of certain enzymes and transport molecules. The plasma membrane is made up primarily of a bilayer of phospholipids with embedded proteins, carbohydrates, glycolipids, glycoproteins, and, in animal cells, cholesterol. Cholesterol helps regulate membrane fluidity and its amount may change depending on the temperature of the cell’s environment. The main structure of the membrane consists of two layers of phospholipid molecules. The polar ends of the phospholipids are in contact with aqueous fluid inside and outside the cell, making both membrane surfaces hydrophilic. The fatty acid tails form a hydrophobic, nonpolar region in the interior of the membrane. This region does not attract water or other polar molecules. Proteins are the second major chemical component of plasma membranes. Integral proteins are embedded in the membrane and may span all or part of it. These proteins may serve as channels or pumps that move materials into or out of the cell. Peripheral proteins are located on the exterior or interior surfaces of the membrane and may be attached to integral proteins or phospholipid molecules. Integral and peripheral proteins may function as enzymes, structural attachments, or parts",
+            "retrieval_score": 0.6123231649398804
+          }
+        ],
+        "rag_output": "is at its highest concentration in the bottle; its lowest concentration is at the edges of the room."
       }
-    ],
-    "baseline_output": "Selective permeability is important for cells because it controls cell movement.",
-    "rag_output": "Selective permeability means the interior of a cell is not identical to the exterior of the membrane."
+    }
   },
   {
     "task": "concept_explanation",
     "query": "What is diffusion and how does it move substances across cell membranes?",
-    "instruction": "\nExplain diffusion in clear language for an introductory biology student.\n\nInclude:\n- What diffusion means\n- The direction substances move\n- Whether diffusion requires cellular energy\n- How diffusion relates to the plasma membrane\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
-    "top_k": 1,
-    "retrieved_passages": [
-      {
-        "passage_id": "passive_transport_018",
-        "topic": "Passive Transport",
-        "source_file": "passive_transport.txt",
-        "text": "containing more than one substance, each type of molecule diffuses according to its own concentration gradient, independent of the diffusion of other substances. Many factors can affect the rate of diffusion, including concentration gradient, size of the particles that are diffusing, temperature of the system, and so on. In living systems, diffusion of substances into and out of cells is mediated by the plasma membrane. Some materials diffuse readily through the membrane, but others are hindered, and their passage is made possible by specialized proteins, such as channels and transporters. The chemistry of living things occurs in aqueous solutions, and balancing the concentrations of those solutions is an ongoing problem. In living systems, diffusion of some substances would be slow or difficult without membrane proteins that facilitate transport.",
-        "retrieval_score": 0.7486425042152405
+    "instruction": "\nExplain diffusion in clear language for an introductory biology student.\n\nInclude:\n\n- What diffusion means\n- The direction substances move\n- Whether diffusion requires cellular energy\n- How diffusion relates to the plasma membrane\n\nWrite 3-5 sentences.\n\nUse only the provided context.\n",
+    "baseline_output": "The purpose of this assignment is to help a biology student understand the basic principles of diffusion. This assignment will include: - What diffusion means - The direction substances move - Whether diffusion requires cellular energy - How diffusion relates to the plasma membrane",
+    "rag_results": {
+      "k_1": {
+        "top_k": 1,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_018",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "containing more than one substance, each type of molecule diffuses according to its own concentration gradient, independent of the diffusion of other substances. Many factors can affect the rate of diffusion, including concentration gradient, size of the particles that are diffusing, temperature of the system, and so on. In living systems, diffusion of substances into and out of cells is mediated by the plasma membrane. Some materials diffuse readily through the membrane, but others are hindered, and their passage is made possible by specialized proteins, such as channels and transporters. The chemistry of living things occurs in aqueous solutions, and balancing the concentrations of those solutions is an ongoing problem. In living systems, diffusion of some substances would be slow or difficult without membrane proteins that facilitate transport.",
+            "retrieval_score": 0.7486425042152405
+          }
+        ],
+        "rag_output": "The direction substances move is mediated by the plasma membrane."
+      },
+      "k_3": {
+        "top_k": 3,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_018",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "containing more than one substance, each type of molecule diffuses according to its own concentration gradient, independent of the diffusion of other substances. Many factors can affect the rate of diffusion, including concentration gradient, size of the particles that are diffusing, temperature of the system, and so on. In living systems, diffusion of substances into and out of cells is mediated by the plasma membrane. Some materials diffuse readily through the membrane, but others are hindered, and their passage is made possible by specialized proteins, such as channels and transporters. The chemistry of living things occurs in aqueous solutions, and balancing the concentrations of those solutions is an ongoing problem. In living systems, diffusion of some substances would be slow or difficult without membrane proteins that facilitate transport.",
+            "retrieval_score": 0.7486425042152405
+          },
+          {
+            "passage_id": "passive_transport_003",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually, more and more people will smell the ammonia as it spreads. Materials move within the cell’s cytosol by diffusion, and certain materials move through the plasma membrane by diffusion. Diffusion expends no energy. On the contrary, concentration gradients are a form of potential energy, dissipated as the gradient is eliminated. Each separate substance in a medium, such as the extracellular fluid, has its own concentration gradient, independent of the concentration gradients of other materials. In addition, each substance will diffuse according to that gradient. Within a system, there will be different rates of diffusion of the different substances in the medium. Factors That Affect Diffusion Molecules move constantly in a random manner, at a rate that depends on their mass, their environment, and the amount of thermal energy they possess, which in turn is a function of temperature. This movement accounts for the diffusion of molecules through whatever medium in which they are localized. A substance will tend to move into any space available to it until it is evenly distributed throughout it. After a substance has diffused completely through a space, removing its concentration gradient, molecules will still move around in the space, but there will be no net",
+            "retrieval_score": 0.7133094072341919
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.6906869411468506
+          }
+        ],
+        "rag_output": "What diffusion means."
+      },
+      "k_5": {
+        "top_k": 5,
+        "retrieved_passages": [
+          {
+            "passage_id": "passive_transport_018",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "containing more than one substance, each type of molecule diffuses according to its own concentration gradient, independent of the diffusion of other substances. Many factors can affect the rate of diffusion, including concentration gradient, size of the particles that are diffusing, temperature of the system, and so on. In living systems, diffusion of substances into and out of cells is mediated by the plasma membrane. Some materials diffuse readily through the membrane, but others are hindered, and their passage is made possible by specialized proteins, such as channels and transporters. The chemistry of living things occurs in aqueous solutions, and balancing the concentrations of those solutions is an ongoing problem. In living systems, diffusion of some substances would be slow or difficult without membrane proteins that facilitate transport.",
+            "retrieval_score": 0.7486425042152405
+          },
+          {
+            "passage_id": "passive_transport_003",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually, more and more people will smell the ammonia as it spreads. Materials move within the cell’s cytosol by diffusion, and certain materials move through the plasma membrane by diffusion. Diffusion expends no energy. On the contrary, concentration gradients are a form of potential energy, dissipated as the gradient is eliminated. Each separate substance in a medium, such as the extracellular fluid, has its own concentration gradient, independent of the concentration gradients of other materials. In addition, each substance will diffuse according to that gradient. Within a system, there will be different rates of diffusion of the different substances in the medium. Factors That Affect Diffusion Molecules move constantly in a random manner, at a rate that depends on their mass, their environment, and the amount of thermal energy they possess, which in turn is a function of temperature. This movement accounts for the diffusion of molecules through whatever medium in which they are localized. A substance will tend to move into any space available to it until it is evenly distributed throughout it. After a substance has diffused completely through a space, removing its concentration gradient, molecules will still move around in the space, but there will be no net",
+            "retrieval_score": 0.7133094072341919
+          },
+          {
+            "passage_id": "passive_transport_002",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "hydrophobic lipid core of the membrane. Substances such as the fat-soluble vitamins A, D, E, and K readily pass through the plasma membranes in the digestive tract and other tissues. Fat-soluble drugs and hormones also gain easy entry into cells and are readily transported into the body’s tissues and organs. Molecules of oxygen and carbon dioxide have no charge and so pass through membranes by simple diffusion. Polar substances present problems for the membrane. While some polar molecules connect easily with the outside of a cell, they cannot readily pass through the lipid core of the plasma membrane. Additionally, while small ions could easily slip through the spaces in the mosaic of the membrane, their charge prevents them from doing so. Ions such as sodium, potassium, calcium, and chloride must have special means of penetrating plasma membranes. Simple sugars and amino acids also need help with transport across plasma membranes, achieved by various transmembrane proteins (channels). Diffusion Diffusion is a passive process of transport. A single substance tends to move from an area of high concentration to an area of low concentration until the concentration is equal across a space. You are familiar with diffusion of substances through the air. For example, think about someone opening a bottle of ammonia in a room filled with people. The ammonia gas is at its highest concentration in the bottle; its lowest concentration is at the edges of the room. The ammonia vapor will diffuse, or spread away, from the bottle, and gradually,",
+            "retrieval_score": 0.6906869411468506
+          },
+          {
+            "passage_id": "passive_transport_006",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "must either be small in size, as in the case of many prokaryotes, or be flattened, as with many single-celled eukaryotes. A variation of diffusion is the process of filtration. In filtration, material moves according to its concentration gradient through a membrane; sometimes the rate of diffusion is enhanced by pressure, causing the substances to filter more rapidly. This occurs in the kidney, where blood pressure forces large amounts of water and accompanying dissolved substances, or solutes, out of the blood and into the renal tubules. The rate of diffusion in this instance is almost totally dependent on pressure. One of the effects of high blood pressure is the appearance of protein in the urine, which is “squeezed through” by the abnormally high pressure. Facilitated transport In facilitated transport, also called facilitated diffusion, materials diffuse across the plasma membrane with the help of membrane proteins. A concentration gradient exists that would allow these materials to diffuse into the cell without expending cellular energy. However, these materials are ions or polar molecules that are repelled by the hydrophobic parts of the cell membrane. Facilitated transport proteins shield these materials from the repulsive force of the membrane, allowing them to diffuse into the cell. The material being transported is first attached to protein or glycoprotein receptors on the exterior surface of the plasma membrane. This allows the material that is needed by the cell to be removed from the extracellular fluid. The substances are then passed to specific integral proteins that facilitate",
+            "retrieval_score": 0.6672502756118774
+          },
+          {
+            "passage_id": "passive_transport_011",
+            "topic": "Passive Transport",
+            "source_file": "passive_transport.txt",
+            "text": "a special case of diffusion. Water, like other substances, moves from an area of high concentration to one of low concentration. An obvious question is what makes water move at all? Imagine a beaker with a semipermeable membrane separating the two sides or halves. On both sides of the membrane the water level is the same, but there are different concentrations of a dissolved substance, or solute, that cannot cross the membrane (otherwise the concentrations on each side would be balanced by the solute crossing the membrane). If the volume of the solution on both sides of the membrane is the same, but the concentrations of solute are different, then there are different amounts of water, the solvent, on either side of the membrane. To illustrate this, imagine two full glasses of water. One has a single teaspoon of sugar in it, whereas the second one contains one-quarter cup of sugar. If the total volume of the solutions in both cups is the same, which cup contains more water? Because the large amount of sugar in the second cup takes up much more space than the teaspoon of sugar in the first cup, the first cup has more water in it. Returning to the beaker example, recall that it has a mixture of solutes on either side of the membrane. A principle of diffusion is that the molecules move around and will spread evenly throughout the medium if they can. However, only the material capable of getting through the membrane",
+            "retrieval_score": 0.6329764723777771
+          }
+        ],
+        "rag_output": "The rate of diffusion in this instance is almost totally dependent on pressure, causing the substances to filter more rapidly."
       }
-    ],
-    "baseline_output": "This passage will teach the introductory biology of diffusion. The introductory biology course is intended to help students get familiar with the basic principles of diffusion.",
-    "rag_output": "What diffusion means."
+    }
   }
 ]
