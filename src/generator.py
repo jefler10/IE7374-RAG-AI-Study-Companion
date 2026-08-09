@@ -1,21 +1,34 @@
+from typing import Optional
+
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
 
-
-MODEL_NAME = "google/flan-t5-base"
+from utils.helpers import load_config
 
 
 class StudyMaterialGenerator:
     """Generate biology study materials with FLAN-T5."""
 
     def __init__(self) -> None:
-        self.tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME)
+        config = load_config()
+        generator_config = config["generator"]
+
+        self.model_name = generator_config["model_name"]
+        self.max_input_length = generator_config["max_input_length"]
+        self.max_new_tokens = generator_config["max_new_tokens"]
+        self.num_beams = generator_config["num_beams"]
+        self.do_sample = generator_config["do_sample"]
+        self.repetition_penalty = generator_config["repetition_penalty"]
+        self.no_repeat_ngram_size = generator_config["no_repeat_ngram_size"]
+        self.early_stopping = generator_config["early_stopping"]
+
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
 
     def generate(
         self,
         instruction: str,
         context=None,
-        max_new_tokens: int = 250,
+        max_new_tokens: Optional[int] = None,
     ) -> str:
         """Generate text with or without retrieved context."""
         if not instruction.strip():
@@ -46,17 +59,20 @@ Response:
             prompt,
             return_tensors="pt",
             truncation=True,
-            max_length=1024,
+            max_length=self.max_input_length,
         )
+
+        if max_new_tokens is None:
+            max_new_tokens = self.max_new_tokens
 
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
-            num_beams=4,
-            do_sample=False,
-            repetition_penalty=1.2,
-            no_repeat_ngram_size=3,
-            early_stopping=True,
+            num_beams=self.num_beams,
+            do_sample=self.do_sample,
+            repetition_penalty=self.repetition_penalty,
+            no_repeat_ngram_size=self.no_repeat_ngram_size,
+            early_stopping=self.early_stopping,
         )
 
         return self.tokenizer.decode(
