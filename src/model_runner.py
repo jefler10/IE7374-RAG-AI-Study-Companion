@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-from generator import StudyMaterialGenerator
-from retrieval import PassageRetriever
+from src.generator import StudyMaterialGenerator
+from src.retrieval import PassageRetriever
 from utils.helpers import load_config
 
 
