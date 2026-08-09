@@ -27,3 +27,4 @@ paths:
   passage_metadata: data/processed/passage_metadata.json
   embeddings: data/processed/embeddings.npy
   output_file: outputs/sample_outputs.json
+  evaluation_template: outputs/human_evaluation_template.csv
