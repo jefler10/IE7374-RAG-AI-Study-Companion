@@ -15,20 +15,18 @@ class StudyMaterialGenerator:
         self.model_name = generator_config["model_name"]
         self.max_input_length = generator_config["max_input_length"]
         self.max_new_tokens = generator_config["max_new_tokens"]
-        self.min_new_tokens = generator_config["min_new_tokens"]
         self.num_beams = generator_config["num_beams"]
         self.do_sample = generator_config["do_sample"]
         self.repetition_penalty = generator_config["repetition_penalty"]
         self.no_repeat_ngram_size = generator_config["no_repeat_ngram_size"]
-        self.length_penalty = generator_config["length_penalty"]
         self.early_stopping = generator_config["early_stopping"]
 
         self.tokenizer = AutoTokenizer.from_pretrained(
             self.model_name
         )
 
-        # Keep the beginning of the prompt if truncation is needed.
-        # The task instructions are placed first so they are preserved.
+        # Keep the beginning of the prompt when truncation is necessary.
+        # Task instructions are placed before the retrieved context.
         self.tokenizer.truncation_side = "right"
 
         self.model = AutoModelForSeq2SeqLM.from_pretrained(
@@ -48,42 +46,34 @@ class StudyMaterialGenerator:
 
         if context:
             prompt = f"""
-You are an introductory biology study assistant.
+Complete this biology task.
 
-Complete the task below exactly as requested.
-Produce the requested answer itself.
-Do not describe the task.
-Use complete sentences unless the requested format says otherwise.
-Use only information supported by the textbook context.
-
-TASK:
+Task:
 {instruction}
 
-TEXTBOOK CONTEXT:
+Use only the biology information below.
+Answer the task directly.
+
+Biology information:
 {context}
 
-ANSWER:
+Answer:
 """
         else:
-            # The baseline has no retrieved textbook context.
-            # Remove the instruction that refers to provided context.
             baseline_instruction = instruction.replace(
                 "Use only the provided context.",
                 "",
             ).strip()
 
             prompt = f"""
-You are an introductory biology study assistant.
+Complete this biology task.
 
-Complete the task below exactly as requested.
-Produce the requested answer itself.
-Do not describe the task.
-Use complete sentences unless the requested format says otherwise.
-
-TASK:
+Task:
 {baseline_instruction}
 
-ANSWER:
+Answer the task directly.
+
+Answer:
 """
 
         inputs = self.tokenizer(
@@ -99,12 +89,10 @@ ANSWER:
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
-            min_new_tokens=self.min_new_tokens,
             num_beams=self.num_beams,
             do_sample=self.do_sample,
             repetition_penalty=self.repetition_penalty,
             no_repeat_ngram_size=self.no_repeat_ngram_size,
-            length_penalty=self.length_penalty,
             early_stopping=self.early_stopping,
         )
 
@@ -119,23 +107,19 @@ def main() -> None:
 
     sample_context = (
         "The plasma membrane defines the boundary of the cell. "
-        "It consists mainly of a phospholipid bilayer with proteins "
-        "and controls the movement of substances into and out of the cell."
+        "It consists mainly of a phospholipid bilayer with proteins. "
+        "The membrane controls the movement of substances into "
+        "and out of the cell."
     )
 
     output = generator.generate(
         instruction=(
-            "Create exactly 3 flashcards from the textbook context.\n\n"
-            "Use this exact format:\n"
-            "Flashcard 1:\n"
-            "Term:\n"
-            "Definition:\n\n"
-            "Flashcard 2:\n"
-            "Term:\n"
-            "Definition:\n\n"
-            "Flashcard 3:\n"
-            "Term:\n"
-            "Definition:"
+            "Create 3 biology flashcards. "
+            "Return exactly 3 lines. "
+            "Use this format: "
+            "1. TERM - DEFINITION "
+            "2. TERM - DEFINITION "
+            "3. TERM - DEFINITION"
         ),
         context=sample_context,
     )
