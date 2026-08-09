@@ -2,12 +2,17 @@ import csv
 import json
 from pathlib import Path
 
-
-INPUT_FILE = Path("outputs/sample_outputs.json")
-OUTPUT_FILE = Path("outputs/human_evaluation_template.csv")
+from utils.helpers import load_config
 
 
-def load_results() -> list[dict]:
+config = load_config()
+PATHS_CONFIG = config["paths"]
+
+INPUT_FILE = Path(PATHS_CONFIG["output_file"])
+OUTPUT_FILE = Path(PATHS_CONFIG["evaluation_template"])
+
+
+def load_results() -> list:
     """Load generated baseline and RAG outputs."""
     if not INPUT_FILE.exists():
         raise FileNotFoundError(
@@ -60,7 +65,10 @@ def main() -> None:
         newline="",
         encoding="utf-8",
     ) as output_file:
-        writer = csv.DictWriter(output_file, fieldnames=fieldnames)
+        writer = csv.DictWriter(
+            output_file,
+            fieldnames=fieldnames,
+        )
         writer.writeheader()
         writer.writerows(rows)
 
