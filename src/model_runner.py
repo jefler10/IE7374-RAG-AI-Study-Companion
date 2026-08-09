@@ -11,66 +11,51 @@ TEST_CASES = [
         "task": "summary",
         "query": "What is the purpose of the cell membrane?",
         "instruction": (
-            "Write a short biology summary about the cell membrane. "
-            "Explain its main purpose and basic structure in 2-3 sentences."
+            "In 1-2 sentences, explain the main purpose of the cell membrane."
         ),
     },
     {
-        "task": "flashcards",
-        "query": "What are the main components of the plasma membrane?",
+        "task": "structure_explanation",
+        "query": "What is the basic structure of the plasma membrane?",
         "instruction": (
-            "Make 3 biology flashcards about the plasma membrane. "
-            "Write exactly 3 numbered flashcards. "
-            "Each flashcard should contain a term and a short definition."
-        ),
-    },
-    {
-        "task": "multiple_choice",
-        "query": "How does the phospholipid bilayer help form the membrane?",
-        "instruction": (
-            "Create 1 biology multiple-choice question about the "
-            "phospholipid bilayer. Include 4 answer choices labeled "
-            "A, B, C, and D. Then give the correct answer and a "
-            "short explanation."
+            "In 1-2 sentences, describe the basic structure of the plasma membrane."
         ),
     },
     {
         "task": "concept_explanation",
         "query": "What does the fluid mosaic model describe?",
         "instruction": (
-            "Explain the fluid mosaic model in 2-3 sentences. "
-            "Mention the main membrane components and why membrane "
-            "fluidity is important."
+            "In 1-2 sentences, explain what the fluid mosaic model describes."
         ),
     },
     {
         "task": "definition",
         "query": "What are membrane proteins?",
         "instruction": (
-            "Explain membrane proteins in 2-3 sentences. "
-            "Describe where they are found and what they do."
-        ),
-    },
-    {
-        "task": "comparison",
-        "query": "How is the plasma membrane selectively permeable?",
-        "instruction": (
-            "Explain selective permeability in 2-3 sentences. "
-            "Describe how the plasma membrane controls what can "
-            "enter or leave the cell and why this is important."
+            "In 1-2 sentences, explain what membrane proteins are and what they do."
         ),
     },
     {
         "task": "concept_explanation",
-        "query": (
-            "What is diffusion and how does it move substances "
-            "across cell membranes?"
-        ),
+        "query": "What does selectively permeable mean?",
         "instruction": (
-            "Explain diffusion in 2-3 sentences. "
-            "State the direction substances move, whether cellular "
-            "energy is required, and how diffusion relates to the "
-            "plasma membrane."
+            "In 1-2 sentences, explain what selectively permeable means "
+            "for the plasma membrane."
+        ),
+    },
+    {
+        "task": "definition",
+        "query": "What is diffusion?",
+        "instruction": (
+            "In 1-2 sentences, explain what diffusion is."
+        ),
+    },
+    {
+        "task": "concept_explanation",
+        "query": "Does passive transport require cellular energy?",
+        "instruction": (
+            "In 1-2 sentences, explain whether passive transport requires "
+            "cellular energy and how substances move during passive transport."
         ),
     },
 ]
