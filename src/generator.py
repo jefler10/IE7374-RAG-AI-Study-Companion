@@ -114,12 +114,13 @@ def main() -> None:
 
     output = generator.generate(
         instruction=(
-            "Create 3 biology flashcards. "
-            "Return exactly 3 lines. "
-            "Use this format: "
-            "1. TERM - DEFINITION "
-            "2. TERM - DEFINITION "
-            "3. TERM - DEFINITION"
+            "Make 3 flashcards from the biology information. "
+            "Each flashcard must contain a term and its definition. "
+            "Write exactly 3 numbered flashcards. "
+            "Example format: "
+            "1. Cell - basic unit of life. "
+            "2. Nucleus - contains genetic material. "
+            "3. Membrane - controls what enters and leaves."
         ),
         context=sample_context,
     )
