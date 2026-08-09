@@ -2,12 +2,19 @@ import json
 import re
 from pathlib import Path
 
+from utils.helpers import load_config
 
-RAW_DATA_DIR = Path("data/raw")
-OUTPUT_FILE = Path("data/processed/passages.jsonl")
 
-CHUNK_SIZE = 250
-CHUNK_OVERLAP = 50
+config = load_config()
+
+PREPROCESSING_CONFIG = config["preprocessing"]
+PATHS_CONFIG = config["paths"]
+
+RAW_DATA_DIR = Path(PATHS_CONFIG["raw_data"])
+OUTPUT_FILE = Path(PATHS_CONFIG["processed_data"])
+
+CHUNK_SIZE = PREPROCESSING_CONFIG["chunk_size_words"]
+CHUNK_OVERLAP = PREPROCESSING_CONFIG["chunk_overlap_words"]
 
 
 def clean_text(text: str) -> str:
@@ -20,7 +27,7 @@ def split_into_chunks(
     text: str,
     chunk_size: int = CHUNK_SIZE,
     overlap: int = CHUNK_OVERLAP,
-) -> list[str]:
+) -> list:
     """Split text into overlapping word-based chunks."""
     if overlap >= chunk_size:
         raise ValueError("Overlap must be smaller than chunk size.")
@@ -41,7 +48,7 @@ def split_into_chunks(
     return chunks
 
 
-def process_files() -> list[dict]:
+def process_files() -> list:
     """Read raw text files and create structured passages."""
     passages = []
 
@@ -65,7 +72,7 @@ def process_files() -> list[dict]:
     return passages
 
 
-def save_passages(passages: list[dict]) -> None:
+def save_passages(passages: list) -> None:
     """Save passages as JSON Lines."""
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
 
