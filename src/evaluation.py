@@ -13,10 +13,10 @@ OUTPUT_FILE = Path(PATHS_CONFIG["evaluation_template"])
 
 
 def load_results() -> list:
-    """Load generated baseline and RAG outputs."""
+    """Load generated baseline and multi-k RAG outputs."""
     if not INPUT_FILE.exists():
         raise FileNotFoundError(
-            "Sample outputs were not found. Run model_runner.py first."
+            "Sample outputs were not found. Run model_runner first."
         )
 
     with INPUT_FILE.open("r", encoding="utf-8") as input_file:
@@ -42,12 +42,27 @@ def main() -> None:
     rows = []
 
     for sample_id, result in enumerate(results, start=1):
-        for condition in ["baseline_output", "rag_output"]:
+        rows.append(
+            {
+                "sample_id": sample_id,
+                "task": result["task"],
+                "condition": "baseline",
+                "factual_grounding_1_to_5": "",
+                "relevance_1_to_5": "",
+                "readability_1_to_5": "",
+                "completeness_1_to_5": "",
+                "usefulness_1_to_5": "",
+                "reviewer_name": "",
+                "comments": "",
+            }
+        )
+
+        for rag_key in result["rag_results"]:
             rows.append(
                 {
                     "sample_id": sample_id,
                     "task": result["task"],
-                    "condition": condition,
+                    "condition": rag_key,
                     "factual_grounding_1_to_5": "",
                     "relevance_1_to_5": "",
                     "readability_1_to_5": "",
@@ -73,6 +88,7 @@ def main() -> None:
         writer.writerows(rows)
 
     print(f"Saved evaluation template to {OUTPUT_FILE}")
+    print(f"Created {len(rows)} evaluation rows.")
 
 
 if __name__ == "__main__":
