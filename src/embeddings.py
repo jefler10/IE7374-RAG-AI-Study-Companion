@@ -4,15 +4,22 @@ from pathlib import Path
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-
-INPUT_FILE = Path("data/processed/passages.jsonl")
-EMBEDDING_FILE = Path("data/processed/embeddings.npy")
-METADATA_FILE = Path("data/processed/passage_metadata.json")
-
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+from utils.helpers import load_config
 
 
-def load_passages() -> list[dict]:
+config = load_config()
+
+PATHS_CONFIG = config["paths"]
+RETRIEVAL_CONFIG = config["retrieval"]
+
+INPUT_FILE = Path(PATHS_CONFIG["processed_data"])
+EMBEDDING_FILE = Path(PATHS_CONFIG["embeddings"])
+METADATA_FILE = Path(PATHS_CONFIG["passage_metadata"])
+
+MODEL_NAME = RETRIEVAL_CONFIG["embedding_model"]
+
+
+def load_passages() -> list:
     """Load processed passages from the JSON Lines file."""
     passages = []
 
