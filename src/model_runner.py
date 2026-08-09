@@ -3,9 +3,7 @@ from pathlib import Path
 
 from generator import StudyMaterialGenerator
 from retrieval import PassageRetriever
-
-
-OUTPUT_FILE = Path("outputs/sample_outputs.json")
+from utils.helpers import load_config
 
 
 TEST_CASES = [
@@ -71,6 +69,7 @@ Use only the provided context.
 Explain the fluid mosaic model.
 
 Include:
+
 - What the model describes
 - The major components involved
 - Why membrane fluidity is important
@@ -87,6 +86,7 @@ Use only the provided context.
 Explain the role of membrane proteins.
 
 Include:
+
 - What membrane proteins are
 - Where they are located
 - Their function in the plasma membrane
@@ -101,6 +101,7 @@ Use only the provided context.
 Explain selective permeability.
 
 Include:
+
 - What selective permeability means
 - How the membrane controls the movement of materials
 - Why selective permeability is important for cells
@@ -120,6 +121,7 @@ Use only the provided context.
 Explain diffusion in clear language for an introductory biology student.
 
 Include:
+
 - What diffusion means
 - The direction substances move
 - Whether diffusion requires cellular energy
@@ -133,13 +135,18 @@ Use only the provided context.
 ]
 
 
-def combine_context(passages: list[dict]) -> str:
+def combine_context(passages: list) -> str:
     """Combine retrieved passages into one context string."""
     return "\n\n".join(passage["text"] for passage in passages)
 
 
 def main() -> None:
     """Run baseline and retrieval-augmented generation test cases."""
+    config = load_config()
+
+    output_file = Path(config["paths"]["output_file"])
+    top_k = config["retrieval"]["current_top_k"]
+
     retriever = PassageRetriever()
     generator = StudyMaterialGenerator()
 
@@ -152,7 +159,7 @@ def main() -> None:
 
         retrieved_passages = retriever.retrieve(
             query=test_case["query"],
-            top_k=1,
+            top_k=top_k,
         )
 
         context = combine_context(retrieved_passages)
@@ -167,19 +174,25 @@ def main() -> None:
                 "task": test_case["task"],
                 "query": test_case["query"],
                 "instruction": test_case["instruction"],
-                "top_k": 1,
+                "top_k": top_k,
                 "retrieved_passages": retrieved_passages,
                 "baseline_output": baseline_output,
                 "rag_output": rag_output,
             }
         )
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    output_file.parent.mkdir(parents=True, exist_ok=True)
 
-    with OUTPUT_FILE.open("w", encoding="utf-8") as output_file:
-        json.dump(results, output_file, indent=2, ensure_ascii=False)
+    with output_file.open("w", encoding="utf-8") as file:
+        json.dump(
+            results,
+            file,
+            indent=2,
+            ensure_ascii=False,
+        )
 
-    print(f"Saved {len(results)} results to {OUTPUT_FILE}")
+    print(f"Saved {len(results)} results to {output_file}")
+    print(f"Retrieval top_k used: {top_k}")
 
 
 if __name__ == "__main__":
