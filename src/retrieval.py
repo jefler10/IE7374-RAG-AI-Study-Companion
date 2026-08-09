@@ -5,31 +5,42 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-
-EMBEDDING_FILE = Path("data/processed/embeddings.npy")
-METADATA_FILE = Path("data/processed/passage_metadata.json")
-
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+from utils.helpers import load_config
 
 
 class PassageRetriever:
     """Retrieve biology passages using semantic similarity."""
 
     def __init__(self) -> None:
-        if not EMBEDDING_FILE.exists():
+        config = load_config()
+
+        retrieval_config = config["retrieval"]
+        paths_config = config["paths"]
+
+        self.embedding_file = Path(paths_config["embeddings"])
+        self.metadata_file = Path(paths_config["passage_metadata"])
+        self.model_name = retrieval_config["embedding_model"]
+        self.default_top_k = retrieval_config["current_top_k"]
+
+        if not self.embedding_file.exists():
             raise FileNotFoundError(
                 "Embeddings were not found. Run embeddings.py first."
             )
 
-        if not METADATA_FILE.exists():
+        if not self.metadata_file.exists():
             raise FileNotFoundError(
                 "Passage metadata was not found. Run embeddings.py first."
             )
 
-        self.model = SentenceTransformer(MODEL_NAME)
-        self.embeddings = np.load(EMBEDDING_FILE).astype("float32")
+        self.model = SentenceTransformer(self.model_name)
+        self.embeddings = np.load(
+            self.embedding_file
+        ).astype("float32")
 
-        with METADATA_FILE.open("r", encoding="utf-8") as metadata_file:
+        with self.metadata_file.open(
+            "r",
+            encoding="utf-8",
+        ) as metadata_file:
             self.passages = json.load(metadata_file)
 
         dimension = self.embeddings.shape[1]
@@ -37,10 +48,17 @@ class PassageRetriever:
         self.index = faiss.IndexFlatIP(dimension)
         self.index.add(self.embeddings)
 
-    def retrieve(self, query: str, top_k: int = 3) -> list[dict]:
+    def retrieve(
+        self,
+        query: str,
+        top_k=None,
+    ) -> list:
         """Return the passages most relevant to the query."""
         if not query.strip():
             raise ValueError("Query cannot be empty.")
+
+        if top_k is None:
+            top_k = self.default_top_k
 
         top_k = min(top_k, len(self.passages))
 
@@ -50,7 +68,10 @@ class PassageRetriever:
             normalize_embeddings=True,
         ).astype("float32")
 
-        scores, indices = self.index.search(query_embedding, top_k)
+        scores, indices = self.index.search(
+            query_embedding,
+            top_k,
+        )
 
         results = []
 
@@ -66,7 +87,7 @@ def main() -> None:
     retriever = PassageRetriever()
 
     query = "What is the purpose of the cell membrane?"
-    results = retriever.retrieve(query, top_k=3)
+    results = retriever.retrieve(query)
 
     print(f"Query: {query}")
 
