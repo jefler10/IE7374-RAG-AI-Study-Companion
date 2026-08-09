@@ -1,5 +1,26 @@
 from pathlib import Path
 
+import yaml
+
+
+CONFIG_FILE = Path("configs/model_config.yaml")
+
+
+def load_config() -> dict:
+    """Load project settings from the YAML configuration file."""
+    if not CONFIG_FILE.exists():
+        raise FileNotFoundError(
+            f"Configuration file not found: {CONFIG_FILE}"
+        )
+
+    with CONFIG_FILE.open("r", encoding="utf-8") as config_file:
+        config = yaml.safe_load(config_file)
+
+    if not config:
+        raise ValueError("Configuration file is empty.")
+
+    return config
+
 
 def ensure_parent_directory(file_path: Path) -> None:
     """Create the parent directory for a file if it does not already exist."""
