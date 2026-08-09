@@ -15,15 +15,19 @@ class StudyMaterialGenerator:
         self.model_name = generator_config["model_name"]
         self.max_input_length = generator_config["max_input_length"]
         self.max_new_tokens = generator_config["max_new_tokens"]
+        self.min_new_tokens = generator_config["min_new_tokens"]
         self.num_beams = generator_config["num_beams"]
         self.do_sample = generator_config["do_sample"]
         self.repetition_penalty = generator_config["repetition_penalty"]
         self.no_repeat_ngram_size = generator_config["no_repeat_ngram_size"]
+        self.length_penalty = generator_config["length_penalty"]
         self.early_stopping = generator_config["early_stopping"]
 
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            self.model_name
+        )
 
-        # If the prompt is too long, keep the beginning of the prompt.
+        # Keep the beginning of the prompt if truncation is needed.
         # The task instructions are placed first so they are preserved.
         self.tokenizer.truncation_side = "right"
 
@@ -38,6 +42,7 @@ class StudyMaterialGenerator:
         max_new_tokens: Optional[int] = None,
     ) -> str:
         """Generate text with or without retrieved context."""
+
         if not instruction.strip():
             raise ValueError("Instruction cannot be empty.")
 
@@ -60,8 +65,8 @@ TEXTBOOK CONTEXT:
 ANSWER:
 """
         else:
-            # The baseline has no retrieved textbook context, so remove
-            # the context-only instruction before sending it to FLAN-T5.
+            # The baseline has no retrieved textbook context.
+            # Remove the instruction that refers to provided context.
             baseline_instruction = instruction.replace(
                 "Use only the provided context.",
                 "",
@@ -94,10 +99,12 @@ ANSWER:
         outputs = self.model.generate(
             **inputs,
             max_new_tokens=max_new_tokens,
+            min_new_tokens=self.min_new_tokens,
             num_beams=self.num_beams,
             do_sample=self.do_sample,
             repetition_penalty=self.repetition_penalty,
             no_repeat_ngram_size=self.no_repeat_ngram_size,
+            length_penalty=self.length_penalty,
             early_stopping=self.early_stopping,
         )
 
