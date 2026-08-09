@@ -10,106 +10,55 @@ TEST_CASES = [
     {
         "task": "summary",
         "query": "What is the purpose of the cell membrane?",
-        "instruction": """
-Write a concise student-friendly summary explaining the purpose
-and structure of the cell membrane.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Write a short biology summary about the cell membrane. "
+            "Explain its main purpose and basic structure in 2-3 sentences."
+        ),
     },
     {
         "task": "flashcards",
         "query": "What are the main components of the plasma membrane?",
-        "instruction": """
-Create exactly three flashcards.
-
-Format each flashcard as:
-
-Flashcard 1:
-Term:
-Definition:
-
-Flashcard 2:
-Term:
-Definition:
-
-Flashcard 3:
-Term:
-Definition:
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Make 3 biology flashcards about the plasma membrane. "
+            "Write exactly 3 numbered flashcards. "
+            "Each flashcard should contain a term and a short definition."
+        ),
     },
     {
         "task": "multiple_choice",
         "query": "How does the phospholipid bilayer help form the membrane?",
-        "instruction": """
-Create one multiple-choice question.
-
-Format:
-
-Question:
-
-A.
-B.
-C.
-D.
-
-Correct Answer:
-
-Explanation:
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Create 1 biology multiple-choice question about the "
+            "phospholipid bilayer. Include 4 answer choices labeled "
+            "A, B, C, and D. Then give the correct answer and a "
+            "short explanation."
+        ),
     },
     {
         "task": "concept_explanation",
         "query": "What does the fluid mosaic model describe?",
-        "instruction": """
-Explain the fluid mosaic model.
-
-Include:
-
-- What the model describes
-- The major components involved
-- Why membrane fluidity is important
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Explain the fluid mosaic model in 2-3 sentences. "
+            "Mention the main membrane components and why membrane "
+            "fluidity is important."
+        ),
     },
     {
         "task": "definition",
         "query": "What are membrane proteins?",
-        "instruction": """
-Explain the role of membrane proteins.
-
-Include:
-
-- What membrane proteins are
-- Where they are located
-- Their function in the plasma membrane
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Explain membrane proteins in 2-3 sentences. "
+            "Describe where they are found and what they do."
+        ),
     },
     {
         "task": "comparison",
         "query": "How is the plasma membrane selectively permeable?",
-        "instruction": """
-Explain selective permeability.
-
-Include:
-
-- What selective permeability means
-- How the membrane controls the movement of materials
-- Why selective permeability is important for cells
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Explain selective permeability in 2-3 sentences. "
+            "Describe how the plasma membrane controls what can "
+            "enter or leave the cell and why this is important."
+        ),
     },
     {
         "task": "concept_explanation",
@@ -117,20 +66,12 @@ Use only the provided context.
             "What is diffusion and how does it move substances "
             "across cell membranes?"
         ),
-        "instruction": """
-Explain diffusion in clear language for an introductory biology student.
-
-Include:
-
-- What diffusion means
-- The direction substances move
-- Whether diffusion requires cellular energy
-- How diffusion relates to the plasma membrane
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "Explain diffusion in 2-3 sentences. "
+            "State the direction substances move, whether cellular "
+            "energy is required, and how diffusion relates to the "
+            "plasma membrane."
+        ),
     },
 ]
 
