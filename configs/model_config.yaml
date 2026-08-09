@@ -2,12 +2,10 @@ generator:
   model_name: google/flan-t5-base
   max_input_length: 1024
   max_new_tokens: 250
-  min_new_tokens: 60
   num_beams: 4
   do_sample: false
   repetition_penalty: 1.2
   no_repeat_ngram_size: 3
-  length_penalty: 1.2
   early_stopping: true
 
 retrieval:
