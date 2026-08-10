@@ -236,7 +236,6 @@ Passage metadata used for retrieval is saved in:
     ├── docs/
     │   ├── evaluation_rubric.md
     │   ├── method_selection.md
-    │   └── preliminary_results.md
     │
     ├── outputs/
     │   ├── sample_outputs.json
@@ -604,7 +603,6 @@ The documentation includes:
 
 - `evaluation_rubric.md` — scoring criteria used to evaluate generated responses
 - `method_selection.md` — explanation of model and retrieval-method selection
-- `preliminary_results.md` — notes from earlier development and testing
 
 Final generated outputs and evaluation results are stored under outputs/.
 
