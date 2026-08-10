@@ -1,17 +1,16 @@
 # Human Evaluation Rubric
 
-Generated outputs will be reviewed by at least two team members.
+Generated outputs were independently reviewed by two evaluators.
 
-Each criterion will be scored from 1 to 5.
+Each response was scored from 1 to 5 on the following criteria:
 
 | Criterion | Description |
 |---|---|
-| Factual grounding | Claims are supported by the retrieved textbook context |
+| Factual grounding | Claims are supported by the retrieved biology source material |
 | Relevance | The response directly addresses the study prompt |
 | Readability | The response is clear and appropriate for an introductory biology student |
 | Completeness | The response includes the important requested information |
-| Usefulness | The output would help a student study or understand the topic |
-| MCQ quality | The question has one clear correct answer and an explanation supported by the source text |
+| Usefulness | The response would help a student study or understand the topic |
 
 ## Rating Scale
 
@@ -23,12 +22,20 @@ Each criterion will be scored from 1 to 5.
 
 ## Review Procedure
 
-Two team members will independently review selected baseline and RAG outputs.
+Two evaluators independently reviewed all 28 generated responses across four experimental conditions:
 
-The reviewers will compare:
+- Instruction-only baseline
+- RAG with `k = 1`
+- RAG with `k = 3`
+- RAG with `k = 5`
 
-- FLAN-T5 outputs generated without retrieved context
-- RAG outputs generated with retrieved biology passages
-- Retrieval settings using 1, 3, and 5 passages
+Each evaluator recorded scores for factual grounding, relevance, readability, completeness, and usefulness, along with optional comments.
 
-Reviewers will record scores and comments. Large disagreements will be discussed before results are summarized.
+The completed evaluation files are stored in:
+
+    outputs/human_evaluation_reviewer1.csv
+    outputs/human_evaluation_reviewer2.csv
+    outputs/human_evaluation_combined_detailed.csv
+    outputs/human_evaluation_combined_summary.csv
+
+The two evaluator scores were combined and averaged to produce the final results reported in the main README.
