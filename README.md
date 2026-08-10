@@ -239,7 +239,6 @@ Passage metadata used for retrieval is saved in:
     │   └── preliminary_results.md
     │
     ├── outputs/
-    │   ├── README.md
     │   ├── sample_outputs.json
     │   ├── human_evaluation_template.csv
     │   ├── human_evaluation_reviewer1.csv
