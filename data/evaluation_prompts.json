@@ -1,32 +1,44 @@
 [
   {
-    "prompt_id": "cell_membrane_01",
-    "topic": "cell membranes",
+    "prompt_id": "cell_membrane_purpose",
+    "topic": "cell membrane",
     "query": "What is the purpose of the cell membrane?",
-    "expected_source_topic": "cell membranes"
+    "expected_source_topic": "Cell Membrane"
   },
   {
-    "prompt_id": "diffusion_01",
-    "topic": "diffusion",
-    "query": "How does diffusion move particles?",
-    "expected_source_topic": "diffusion"
+    "prompt_id": "plasma_membrane_structure",
+    "topic": "cell membrane",
+    "query": "What is the basic structure of the plasma membrane?",
+    "expected_source_topic": "Cell Membrane"
   },
   {
-    "prompt_id": "photosynthesis_01",
-    "topic": "photosynthesis",
-    "query": "What is the role of sunlight in photosynthesis?",
-    "expected_source_topic": "photosynthesis"
+    "prompt_id": "fluid_mosaic_model",
+    "topic": "cell membrane",
+    "query": "What does the fluid mosaic model describe?",
+    "expected_source_topic": "Cell Membrane"
   },
   {
-    "prompt_id": "dna_01",
-    "topic": "DNA",
-    "query": "What information does DNA contain?",
-    "expected_source_topic": "DNA"
+    "prompt_id": "membrane_proteins",
+    "topic": "cell membrane",
+    "query": "What are membrane proteins?",
+    "expected_source_topic": "Cell Membrane"
   },
   {
-    "prompt_id": "cellular_respiration_01",
-    "topic": "cellular respiration",
-    "query": "Why do cells perform cellular respiration?",
-    "expected_source_topic": "cellular respiration"
+    "prompt_id": "selective_permeability",
+    "topic": "passive transport",
+    "query": "What does selectively permeable mean?",
+    "expected_source_topic": "Passive Transport"
+  },
+  {
+    "prompt_id": "diffusion",
+    "topic": "passive transport",
+    "query": "What is diffusion?",
+    "expected_source_topic": "Passive Transport"
+  },
+  {
+    "prompt_id": "passive_transport_energy",
+    "topic": "passive transport",
+    "query": "Does passive transport require cellular energy?",
+    "expected_source_topic": "Passive Transport"
   }
 ]
