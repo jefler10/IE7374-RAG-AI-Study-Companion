@@ -21,8 +21,17 @@ class StudyMaterialGenerator:
         self.no_repeat_ngram_size = generator_config["no_repeat_ngram_size"]
         self.early_stopping = generator_config["early_stopping"]
 
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(self.model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            self.model_name
+        )
+
+        # Keep the beginning of the prompt when truncation is necessary.
+        # Task instructions are placed before the retrieved context.
+        self.tokenizer.truncation_side = "right"
+
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(
+            self.model_name
+        )
 
     def generate(
         self,
@@ -31,29 +40,41 @@ class StudyMaterialGenerator:
         max_new_tokens: Optional[int] = None,
     ) -> str:
         """Generate text with or without retrieved context."""
+
         if not instruction.strip():
             raise ValueError("Instruction cannot be empty.")
 
         if context:
             prompt = f"""
-You are a biology teaching assistant.
-
-Use ONLY the information in the context below.
-
-Follow the task instructions exactly.
-Do not copy sentences from the context.
-Generate a complete answer suitable for an introductory biology student.
-
-Context:
-{context}
+Complete this biology task.
 
 Task:
 {instruction}
 
-Response:
+Use only the biology information below.
+Answer the task directly.
+
+Biology information:
+{context}
+
+Answer:
 """
         else:
-            prompt = instruction
+            baseline_instruction = instruction.replace(
+                "Use only the provided context.",
+                "",
+            ).strip()
+
+            prompt = f"""
+Complete this biology task.
+
+Task:
+{baseline_instruction}
+
+Answer the task directly.
+
+Answer:
+"""
 
         inputs = self.tokenizer(
             prompt,
@@ -86,17 +107,20 @@ def main() -> None:
 
     sample_context = (
         "The plasma membrane defines the boundary of the cell. "
-        "It consists mainly of a phospholipid bilayer with proteins "
-        "and controls the movement of substances into and out of the cell."
+        "It consists mainly of a phospholipid bilayer with proteins. "
+        "The membrane controls the movement of substances into "
+        "and out of the cell."
     )
 
     output = generator.generate(
         instruction=(
-            "Create 3 different flashcards from the context. "
-            "Use this exact format:\n"
-            "1. Term: ... Definition: ...\n"
-            "2. Term: ... Definition: ...\n"
-            "3. Term: ... Definition: ..."
+            "Make 3 flashcards from the biology information. "
+            "Each flashcard must contain a term and its definition. "
+            "Write exactly 3 numbered flashcards. "
+            "Example format: "
+            "1. Cell - basic unit of life. "
+            "2. Nucleus - contains genetic material. "
+            "3. Membrane - controls what enters and leaves."
         ),
         context=sample_context,
     )

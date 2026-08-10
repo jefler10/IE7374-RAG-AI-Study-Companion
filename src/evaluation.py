@@ -5,75 +5,99 @@ from pathlib import Path
 from utils.helpers import load_config
 
 
-config = load_config()
-PATHS_CONFIG = config["paths"]
+def create_evaluation_template():
+    config = load_config()
 
-INPUT_FILE = Path(PATHS_CONFIG["output_file"])
-OUTPUT_FILE = Path(PATHS_CONFIG["evaluation_template"])
+    output_file = Path(config["paths"]["output_file"])
+    evaluation_file = Path(config["paths"]["evaluation_template"])
 
-
-def load_results() -> list:
-    """Load generated baseline and RAG outputs."""
-    if not INPUT_FILE.exists():
+    if not output_file.exists():
         raise FileNotFoundError(
-            "Sample outputs were not found. Run model_runner.py first."
+            f"Experiment output not found: {output_file}\n"
+            "Run python -m src.model_runner first."
         )
 
-    with INPUT_FILE.open("r", encoding="utf-8") as input_file:
-        return json.load(input_file)
-
-
-def main() -> None:
-    results = load_results()
-
-    fieldnames = [
-        "sample_id",
-        "task",
-        "condition",
-        "factual_grounding_1_to_5",
-        "relevance_1_to_5",
-        "readability_1_to_5",
-        "completeness_1_to_5",
-        "usefulness_1_to_5",
-        "reviewer_name",
-        "comments",
-    ]
+    with open(output_file, "r", encoding="utf-8") as f:
+        results = json.load(f)
 
     rows = []
+    sample_id = 1
 
-    for sample_id, result in enumerate(results, start=1):
-        for condition in ["baseline_output", "rag_output"]:
+    for result in results:
+        task = result["task"]
+        query = result["query"]
+        instruction = result["instruction"]
+
+        # Baseline row
+        rows.append(
+            {
+                "sample_id": sample_id,
+                "task": task,
+                "query": query,
+                "instruction": instruction,
+                "condition": "baseline",
+                "top_k": 0,
+                "output_text": result["baseline_output"],
+                "factual_grounding": "",
+                "relevance": "",
+                "readability": "",
+                "completeness": "",
+                "usefulness": "",
+                "reviewer_name": "",
+                "comments": "",
+            }
+        )
+        sample_id += 1
+
+        # RAG rows
+        for key, rag_result in result["rag_results"].items():
             rows.append(
                 {
                     "sample_id": sample_id,
-                    "task": result["task"],
-                    "condition": condition,
-                    "factual_grounding_1_to_5": "",
-                    "relevance_1_to_5": "",
-                    "readability_1_to_5": "",
-                    "completeness_1_to_5": "",
-                    "usefulness_1_to_5": "",
+                    "task": task,
+                    "query": query,
+                    "instruction": instruction,
+                    "condition": key,
+                    "top_k": rag_result["top_k"],
+                    "output_text": rag_result["rag_output"],
+                    "factual_grounding": "",
+                    "relevance": "",
+                    "readability": "",
+                    "completeness": "",
+                    "usefulness": "",
                     "reviewer_name": "",
                     "comments": "",
                 }
             )
+            sample_id += 1
 
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    evaluation_file.parent.mkdir(parents=True, exist_ok=True)
 
-    with OUTPUT_FILE.open(
-        "w",
-        newline="",
-        encoding="utf-8",
-    ) as output_file:
-        writer = csv.DictWriter(
-            output_file,
-            fieldnames=fieldnames,
-        )
+    fieldnames = [
+        "sample_id",
+        "task",
+        "query",
+        "instruction",
+        "condition",
+        "top_k",
+        "output_text",
+        "factual_grounding",
+        "relevance",
+        "readability",
+        "completeness",
+        "usefulness",
+        "reviewer_name",
+        "comments",
+    ]
+
+    with open(evaluation_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"Saved evaluation template to {OUTPUT_FILE}")
+    print(f"Saved evaluation template to {evaluation_file}")
+    print(f"Created {len(rows)} evaluation rows.")
 
 
 if __name__ == "__main__":
-    main()
+    create_evaluation_template()

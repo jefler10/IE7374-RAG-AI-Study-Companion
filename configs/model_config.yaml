@@ -2,11 +2,11 @@ generator:
   model_name: google/flan-t5-base
   max_input_length: 1024
   max_new_tokens: 250
-  num_beams: 4
+  num_beams: 1
   do_sample: false
-  repetition_penalty: 1.2
-  no_repeat_ngram_size: 3
-  early_stopping: true
+  repetition_penalty: 1.0
+  no_repeat_ngram_size: 0
+  early_stopping: false
 
 retrieval:
   embedding_model: sentence-transformers/all-MiniLM-L6-v2

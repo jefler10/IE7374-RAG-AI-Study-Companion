@@ -10,127 +10,53 @@ TEST_CASES = [
     {
         "task": "summary",
         "query": "What is the purpose of the cell membrane?",
-        "instruction": """
-Write a concise student-friendly summary explaining the purpose
-and structure of the cell membrane.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "In 1-2 sentences, explain the main purpose of the cell membrane."
+        ),
     },
     {
-        "task": "flashcards",
-        "query": "What are the main components of the plasma membrane?",
-        "instruction": """
-Create exactly three flashcards.
-
-Format each flashcard as:
-
-Flashcard 1:
-Term:
-Definition:
-
-Flashcard 2:
-Term:
-Definition:
-
-Flashcard 3:
-Term:
-Definition:
-
-Use only the provided context.
-""",
-    },
-    {
-        "task": "multiple_choice",
-        "query": "How does the phospholipid bilayer help form the membrane?",
-        "instruction": """
-Create one multiple-choice question.
-
-Format:
-
-Question:
-
-A.
-B.
-C.
-D.
-
-Correct Answer:
-
-Explanation:
-
-Use only the provided context.
-""",
+        "task": "structure_explanation",
+        "query": "What is the basic structure of the plasma membrane?",
+        "instruction": (
+            "In 1-2 sentences, describe the basic structure of the plasma membrane."
+        ),
     },
     {
         "task": "concept_explanation",
         "query": "What does the fluid mosaic model describe?",
-        "instruction": """
-Explain the fluid mosaic model.
-
-Include:
-
-- What the model describes
-- The major components involved
-- Why membrane fluidity is important
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "In 1-2 sentences, explain what the fluid mosaic model describes."
+        ),
     },
     {
         "task": "definition",
         "query": "What are membrane proteins?",
-        "instruction": """
-Explain the role of membrane proteins.
-
-Include:
-
-- What membrane proteins are
-- Where they are located
-- Their function in the plasma membrane
-
-Use only the provided context.
-""",
-    },
-    {
-        "task": "comparison",
-        "query": "How is the plasma membrane selectively permeable?",
-        "instruction": """
-Explain selective permeability.
-
-Include:
-
-- What selective permeability means
-- How the membrane controls the movement of materials
-- Why selective permeability is important for cells
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+        "instruction": (
+            "In 1-2 sentences, explain what membrane proteins are and what they do."
+        ),
     },
     {
         "task": "concept_explanation",
-        "query": (
-            "What is diffusion and how does it move substances "
-            "across cell membranes?"
+        "query": "What does selectively permeable mean?",
+        "instruction": (
+            "In 1-2 sentences, explain what selectively permeable means "
+            "for the plasma membrane."
         ),
-        "instruction": """
-Explain diffusion in clear language for an introductory biology student.
-
-Include:
-
-- What diffusion means
-- The direction substances move
-- Whether diffusion requires cellular energy
-- How diffusion relates to the plasma membrane
-
-Write 3-5 sentences.
-
-Use only the provided context.
-""",
+    },
+    {
+        "task": "definition",
+        "query": "What is diffusion?",
+        "instruction": (
+            "In 1-2 sentences, explain what diffusion is."
+        ),
+    },
+    {
+        "task": "concept_explanation",
+        "query": "Does passive transport require cellular energy?",
+        "instruction": (
+            "In 1-2 sentences, explain whether passive transport requires "
+            "cellular energy and how substances move during passive transport."
+        ),
     },
 ]
 
@@ -141,11 +67,11 @@ def combine_context(passages: list) -> str:
 
 
 def main() -> None:
-    """Run baseline and retrieval-augmented generation test cases."""
+    """Run baseline and retrieval-depth experiments."""
     config = load_config()
 
     output_file = Path(config["paths"]["output_file"])
-    top_k = config["retrieval"]["current_top_k"]
+    top_k_values = config["retrieval"]["planned_top_k_values"]
 
     retriever = PassageRetriever()
     generator = StudyMaterialGenerator()
@@ -153,33 +79,45 @@ def main() -> None:
     results = []
 
     for test_case in TEST_CASES:
+        print(
+            f"Running task: {test_case['task']} "
+            f"for query: {test_case['query']}"
+        )
+
         baseline_output = generator.generate(
             instruction=test_case["instruction"]
         )
 
-        retrieved_passages = retriever.retrieve(
-            query=test_case["query"],
-            top_k=top_k,
-        )
+        result = {
+            "task": test_case["task"],
+            "query": test_case["query"],
+            "instruction": test_case["instruction"],
+            "baseline_output": baseline_output,
+            "rag_results": {},
+        }
 
-        context = combine_context(retrieved_passages)
+        for top_k in top_k_values:
+            print(f"  Running RAG with k={top_k}")
 
-        rag_output = generator.generate(
-            instruction=test_case["instruction"],
-            context=context,
-        )
+            retrieved_passages = retriever.retrieve(
+                query=test_case["query"],
+                top_k=top_k,
+            )
 
-        results.append(
-            {
-                "task": test_case["task"],
-                "query": test_case["query"],
-                "instruction": test_case["instruction"],
+            context = combine_context(retrieved_passages)
+
+            rag_output = generator.generate(
+                instruction=test_case["instruction"],
+                context=context,
+            )
+
+            result["rag_results"][f"k_{top_k}"] = {
                 "top_k": top_k,
                 "retrieved_passages": retrieved_passages,
-                "baseline_output": baseline_output,
                 "rag_output": rag_output,
             }
-        )
+
+        results.append(result)
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
@@ -191,8 +129,14 @@ def main() -> None:
             ensure_ascii=False,
         )
 
-    print(f"Saved {len(results)} results to {output_file}")
-    print(f"Retrieval top_k used: {top_k}")
+    print(
+        f"Saved {len(results)} experiment results "
+        f"to {output_file}"
+    )
+    print(
+        "Retrieval depths tested: "
+        + ", ".join(str(k) for k in top_k_values)
+    )
 
 
 if __name__ == "__main__":
