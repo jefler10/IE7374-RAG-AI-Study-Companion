@@ -2,24 +2,11 @@
 
 ## Project Overview
 
-This project develops a personalized AI study companion using Retrieval-Augmented Generation (RAG) for technical learning.
+This project develops a Retrieval-Augmented Generation (RAG)-based AI study companion for technical learning. The final proof of concept uses introductory biology material from Biology LibreTexts to generate concise, grounded educational explanations.
 
-The current implementation uses introductory biology textbook material to generate educational study resources, including:
+For each student query, the system retrieves relevant textbook passages using semantic similarity and provides that context to google/flan-t5-base. The final experiment compares instruction-only generation with RAG using retrieval depths of k=1, k=3, and k=5.
 
-- Student-friendly summaries
-- Flashcards
-- Multiple-choice questions
-- Definitions
-- Concept explanations
-- Topic comparisons
-
-The system combines semantic passage retrieval with a pretrained generative language model. For each student query, the pipeline retrieves a relevant textbook passage and provides that passage to the model as supporting context.
-
-The system produces two types of responses:
-
-1. A **baseline output** generated from the instruction without retrieved context
-2. A **RAG output** generated from the same instruction with a retrieved textbook passage
-
+The system is designed as a modular pipeline that could later be adapted to additional subjects by replacing the source material.
 
 ---
 
@@ -34,34 +21,24 @@ The system produces two types of responses:
 
 The primary objectives of this project are to:
 
-- Develop an AI-powered study assistant for technical learning
-- Implement an end-to-end Retrieval-Augmented Generation pipeline
+- Develop an end-to-end Retrieval-Augmented Generation pipeline for educational use
 - Retrieve biology passages relevant to student questions
-- Generate summaries, flashcards, multiple-choice questions, definitions, and explanations
-- Compare baseline generation with retrieval-augmented generation
+- Generate concise educational explanations using FLAN-T5-base
+- Compare instruction-only generation with retrieval-augmented generation
 - Evaluate factual grounding, relevance, readability, completeness, and usefulness
-- Investigate how different retrieval settings affect output quality
-- Explore lightweight personalization based on topic-level student performance
-
+- Investigate how retrieval depth affects response quality
+- Build a modular and reproducible pipeline for future expansion
+  
 ---
 
 ## Research Questions
 
 This project investigates the following questions:
 
-1. How does RAG affect the factual grounding and relevance of FLAN-T5-generated study materials compared with generation without retrieved textbook passages?
+- Does Retrieval-Augmented Generation improve the factual grounding, relevance, and overall quality of educational explanations compared with instruction-only FLAN-T5-base?
+- How does retrieval depth affect response quality when comparing k=1, k=3, and k=5 retrieved passages?
 
-2. How does the number of retrieved passages affect output quality when using `k = 1`, `k = 3`, and `k = 5`?
-
-3. Can lightweight topic-level performance tracking improve the usefulness of practice questions and study recommendations?
-
-The current pipeline uses:
-
-```text
-top_k = 1
-```
-
-Experiments comparing `k = 1`, `k = 3`, and `k = 5` are planned for the final project stage.
+Personalization was part of the original project vision but was not implemented or evaluated in the final proof of concept. It is therefore treated as a possible future extension.
 
 ---
 
@@ -72,7 +49,7 @@ The project follows a Retrieval-Augmented Generation architecture.
 ### 1. Data Collection
 
 - Collect introductory biology material from Biology LibreTexts
-- Use pages with licensing that permits reuse
+- Use source material with licensing that permits reuse
 - Save cleaned source text under `data/raw/`
 - Record source and licensing information in `data/attribution.csv`
 
@@ -81,108 +58,92 @@ The project follows a Retrieval-Augmented Generation architecture.
 - Load raw `.txt` source files
 - Normalize whitespace and remove formatting artifacts
 - Split each document into overlapping passages
-- Assign a unique passage ID and topic
+- Assign each passage a unique ID and topic
 - Save processed passages in JSON Lines format
 
 ### 3. Embedding Generation
 
 - Load the processed passages
-- Convert each passage into a semantic embedding
-- Use `sentence-transformers/all-MiniLM-L6-v2`
+- Convert each passage into a semantic embedding using `sentence-transformers/all-MiniLM-L6-v2`
 - Normalize embeddings for similarity search
 - Save the embedding matrix locally
 - Save passage metadata for retrieval
 
 ### 4. Semantic Retrieval
 
-- Convert the student query into an embedding
-- Compare the query embedding with passage embeddings
-- Use FAISS to retrieve the most relevant passage
-- Return the passage text, source information, and similarity score
+- Convert the student question into an embedding
+- Compare the query embedding with stored passage embeddings
+- Use FAISS to rank passages by semantic similarity
+- Retrieve the top-k passages based on the selected retrieval depth
+- Return the retrieved passage text, metadata, and similarity scores
 
 ### 5. Text Generation
 
 - Load pretrained `google/flan-t5-base`
 - Generate an instruction-only baseline response
-- Retrieve a relevant textbook passage
+- Provide the retrieved textbook passages as context
 - Generate a RAG response using the instruction and retrieved context
-- Save both responses for comparison
+- Save baseline and RAG responses for comparison
 
 ### 6. Evaluation
 
 - Compare baseline and RAG outputs
-- Review factual grounding
-- Review relevance
-- Review readability
-- Review completeness
-- Review usefulness
-- Check whether structured outputs follow the requested format
-
+- Evaluate factual grounding
+- Evaluate relevance
+- Evaluate readability
+- Evaluate completeness
+- Evaluate usefulness
+- Compare performance across `k = 1`, `k = 3`, and `k = 5`
+  
 ---
 
 ## Model and Framework Selection
 
 ### Generative Model
 
-The primary generative model is:
+The primary generative model is google/flan-t5-base.
 
-```text
-google/flan-t5-base
-```
+FLAN-T5 is a pretrained, instruction-tuned encoder-decoder Transformer model designed to follow natural-language instructions across a variety of tasks.
 
-FLAN-T5 is a pretrained, instruction-tuned encoder-decoder Transformer model. It can respond to natural-language instructions, making it suitable for tasks such as:
+FLAN-T5-base was selected because it provides a practical balance between instruction-following ability and computational requirements. It is large enough to generate useful educational responses while remaining feasible to run within the available project environment.
 
-- Writing summaries
-- Creating flashcards
-- Generating multiple-choice questions
-- Explaining biology concepts
-- Defining technical terms
-
-FLAN-T5-base was selected because it provides more generation capacity than FLAN-T5-small while remaining practical for the project timeline and available computing resources.
+During development, FLAN-T5-base performed more reliably on concise explanations than on highly structured outputs such as multi-item flashcards or complete multiple-choice questions. For this reason, the final evaluation focused on short biology explanation tasks.
 
 ### Generation Strategy
 
-The current pipeline uses deterministic beam search for text generation.
+The final pipeline uses greedy decoding for text generation.
 
-Current generation settings are:
+Final generation settings are:
 
-```text
-max_input_length = 1024
-max_new_tokens = 250
-num_beams = 4
-do_sample = False
-repetition_penalty = 1.2
-no_repeat_ngram_size = 3
-early_stopping = True
-```
+- max_input_length = 1024
+- max_new_tokens = 250
+- num_beams = 1
+- do_sample = False
+- repetition_penalty = 1.0
+- no_repeat_ngram_size = 0
+- early_stopping = False
 
-Beam search was selected to improve reproducibility and consistency for structured educational tasks such as flashcards, multiple-choice questions, definitions, and concept explanations.
+These settings were selected after testing showed that stronger beam-search and repetition-control settings could cause incomplete or poorly structured responses. Greedy decoding with fewer restrictions produced more usable outputs for the final experiment.
 
-Because random sampling is disabled, repeated runs with the same prompts, model version, and retrieved passages should produce consistent outputs.
-
-The current results show that deterministic beam search improves reproducibility, but it does not guarantee that FLAN-T5 will follow every requested format or produce complete answers.
+Sampling is disabled to reduce generation variability and improve reproducibility across repeated runs.
 
 ### Embedding Model
 
-The passage and query embedding model is:
+The passage and query embedding model is sentence-transformers/all-MiniLM-L6-v2.
 
-```text
-sentence-transformers/all-MiniLM-L6-v2
-```
-
-This model converts passages and queries into compact semantic vectors.
-
-The embedding dimension is:
-
-```text
-384
-```
+This model converts passages and student questions into 384-dimensional semantic vectors. MiniLM was selected because it provides efficient semantic embeddings with relatively low computational cost, making it suitable for the project’s small-scale retrieval system.
 
 ### Retrieval Library
 
 The project uses FAISS for vector-similarity search.
 
-Passage and query embeddings are normalized before retrieval. Inner-product search on normalized vectors functions as cosine-similarity search.
+Passage and query embeddings are normalized before retrieval. FAISS then ranks the stored passage embeddings by similarity to the student query and returns the top retrieved passages.
+
+The final experiments compare retrieval depths of:
+
+k = 1
+k = 3
+k = 5
 
 ### Frameworks and Libraries
 
@@ -202,178 +163,134 @@ The implementation uses:
 
 ## Training and Fine-Tuning
 
-This project does not train a language model from scratch and does not fine-tune FLAN-T5 during Milestone 4.
+This project uses pretrained `google/flan-t5-base` for generation and `sentence-transformers/all-MiniLM-L6-v2` for embeddings. No additional training or fine-tuning was performed.
 
-The system uses:
-
-- Pretrained `google/flan-t5-base` for text-generation inference
-- Pretrained `sentence-transformers/all-MiniLM-L6-v2` for passage and query embeddings
-
-Because no supervised fine-tuning is performed, conventional training, validation, and test splits are not currently required.
-
-Instead, the project uses representative evaluation prompts to test retrieval and generation behavior.
-
-The current work focuses on:
-
-- Source collection and attribution
-- Text cleaning and passage creation
-- Embedding generation
-- Semantic retrieval
-- Prompt construction
-- Baseline generation
-- RAG generation
-- Preliminary human evaluation
+The final project instead focuses on retrieval-augmented inference and comparison of different retrieval depths while keeping the generative model unchanged.
 
 ---
 
 ## Dataset
 
-The current dataset contains cleaned introductory biology material from Biology LibreTexts.
+The final dataset uses introductory biology material from Biology LibreTexts under the Creative Commons CC BY 4.0 license.
 
-The repository includes two raw source files:
+The repository includes two source files:
 
-```text
-data/raw/cell_membrane.txt
-data/raw/passive_transport.txt
-```
+    data/raw/cell_membrane.txt
+    data/raw/passive_transport.txt
 
-The current material covers:
+The material covers topics including:
 
 - Cell membrane structure and function
-- The fluid mosaic model
-- Phospholipids
-- Membrane proteins
+- Fluid mosaic model
+- Phospholipids and membrane proteins
 - Selective permeability
 - Passive transport
 - Diffusion
 - Facilitated diffusion
-- Osmosis
-- Tonicity
+- Osmosis and tonicity
 
 Source and licensing information is documented in:
 
-```text
-data/attribution.csv
-```
-
-The attribution file contains information for both source pages, including:
-
-- Page identifier
-- Topic
-- Page title
-- Author or contributors
-- Source URL
-- License
-- Access date
+    data/attribution.csv
 
 ### Passage Creation
 
-The preprocessing pipeline divides the raw source text into overlapping passages.
+The preprocessing pipeline divides the source text into overlapping passages using:
 
-Current settings:
+    Chunk size: 250 words
+    Chunk overlap: 50 words
 
-```text
-Chunk size: 250 words
-Chunk overlap: 50 words
-```
+The final processed dataset contains:
 
-The current processed dataset contains:
+    22 passages
 
-```text
-22 passages
-```
+Processed passages are saved in:
 
-The passages are saved in:
+    data/processed/passages.jsonl
 
-```text
-data/processed/passages.jsonl
-```
+Passage metadata used for retrieval is saved in:
 
-The dataset will be expanded during the final project stage to include additional introductory biology topics.
+    data/processed/passage_metadata.json
 
 ---
 
 ## Repository Structure
 
-```text
-IE7374-RAG-AI-Study-Companion/
-│
-├── configs/
-│   └── model_config.yaml
-│
-├── data/
-│   ├── raw/
-│   │   ├── cell_membrane.txt
-│   │   └── passive_transport.txt
-│   │
-│   ├── processed/
-│   │   ├── passages.jsonl
-│   │   └── passage_metadata.json
-│   │
-│   ├── attribution.csv
-│   └── evaluation_prompts.json
-│
-├── docs/
-│   ├── evaluation_rubric.md
-│   ├── method_selection.md
-│   └── preliminary_results.md
-│
-├── outputs/
-│   ├── README.md
-│   ├── human_evaluation_template.csv
-│   └── sample_outputs.json
-│
-├── src/
-│   ├── embeddings.py
-│   ├── evaluation.py
-│   ├── generator.py
-│   ├── model_runner.py
-│   ├── preprocessing.py
-│   └── retrieval.py
-│
-├── utils/
-│   └── helpers.py
-│
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
+    IE7374-RAG-AI-Study-Companion/
+    │
+    ├── configs/
+    │   └── model_config.yaml
+    │
+    ├── data/
+    │   ├── raw/
+    │   │   ├── cell_membrane.txt
+    │   │   └── passive_transport.txt
+    │   │
+    │   ├── processed/
+    │   │   ├── passages.jsonl
+    │   │   └── passage_metadata.json
+    │   │
+    │   ├── attribution.csv
+    │   └── evaluation_prompts.json
+    │
+    ├── docs/
+    │   ├── evaluation_rubric.md
+    │   ├── method_selection.md
+    │   └── preliminary_results.md
+    │
+    ├── outputs/
+    │   ├── README.md
+    │   ├── sample_outputs.json
+    │   ├── human_evaluation_template.csv
+    │   ├── human_evaluation_reviewer1.csv
+    │   ├── human_evaluation_reviewer2.csv
+    │   ├── human_evaluation_combined_detailed.csv
+    │   └── human_evaluation_combined_summary.csv
+    │
+    ├── src/
+    │   ├── __init__.py
+    │   ├── embeddings.py
+    │   ├── evaluation.py
+    │   ├── generator.py
+    │   ├── model_runner.py
+    │   ├── preprocessing.py
+    │   └── retrieval.py
+    │
+    ├── utils/
+    │   ├── __init__.py
+    │   └── helpers.py
+    │
+    ├── .gitignore
+    ├── README.md
+    └── requirements.txt
+
+The repository is organized by function:
+
+- `configs/` stores centralized experiment settings
+- `data/raw/` stores the cleaned Biology LibreTexts source text
+- `data/processed/` stores processed passages and retrieval metadata
+- `docs/` stores supporting project documentation
+- `outputs/` stores generated responses and final evaluation results
+- `src/` contains the preprocessing, embedding, retrieval, generation, experiment, and evaluation code
+- `utils/` contains reusable helper functions
 
 ### Generated Embedding File
 
 The embedding script creates:
 
-```text
-data/processed/embeddings.npy
-```
+    data/processed/embeddings.npy
 
-This generated file is not committed to GitHub because it can be recreated by running:
-
-```bash
-python3 src/embeddings.py
-```
+This generated file is not committed to GitHub because it can be recreated by running python -m src.preprocessing and python -m src.embeddings.
 
 ### Utility Module
 
 The repository includes:
 
-```text
-utils/helpers.py
-```
+    utils/helpers.py
 
-This file provides reusable helper functions that can be used across pipeline components.
+This module contains reusable helper functions used by the pipeline, including configuration loading from `configs/model_config.yaml`.
 
-The current `src/model_runner.py` still contains its own local `combine_context()` helper function and does not currently import `combine_passage_text()` from `utils/helpers.py`.
-
-The utility module is therefore present as reusable shared logic, but full integration into the current runner remains future cleanup work.
-
-This design choice preserves compatibility with the required command:
-
-```bash
-python src/model_runner.py
-```
-
-without requiring changes to Python package import paths.
+The final code uses package-style imports, so commands should be run from the repository root using the module form, for example, python -m src.model_runner.
 
 ---
 
@@ -432,153 +349,130 @@ Run all commands from the repository root.
 
 ### Step 1: Preprocess the Raw Biology Text
 
-```bash
-python3 src/preprocessing.py
-```
+    python -m src.preprocessing
 
 Expected output:
 
-```text
-Saved 22 passages to data/processed/passages.jsonl
-```
+    Saved 22 passages to data/processed/passages.jsonl
 
-This script reads all `.txt` files from:
-
-```text
-data/raw/
-```
-
-It cleans the text and divides it into overlapping passages.
+This script reads the raw `.txt` files from `data/raw/`, cleans the text, divides the documents into overlapping passages, and saves the processed passages in JSON Lines format.
 
 ### Step 2: Create Passage Embeddings
 
-```bash
-python3 src/embeddings.py
-```
+    python -m src.embeddings
 
 Expected output:
 
-```text
-Saved embeddings with shape (22, 384)
-Saved passage metadata to data/processed/passage_metadata.json
-```
+    Saved embeddings with shape (22, 384)
+    Saved passage metadata to data/processed/passage_metadata.json
 
-The first execution downloads the sentence-transformer model.
+This step loads `sentence-transformers/all-MiniLM-L6-v2`, converts each processed passage into a 384-dimensional embedding, and saves the embeddings and passage metadata for retrieval.
 
-This step must be rerun whenever:
-
-- A new source file is added
-- `passages.jsonl` changes
-- Passage chunking settings change
-- Existing source text is modified
+The first execution may take longer because the embedding model must be downloaded. Rerun this step whenever the raw source text or preprocessing settings change.
 
 ### Step 3: Test Semantic Retrieval
 
-```bash
-python3 src/retrieval.py
-```
+    python -m src.retrieval
 
 This script runs a sample query and displays retrieved passages with their similarity scores.
 
 ### Step 4: Test FLAN-T5 Generation
 
-```bash
-python3 src/generator.py
-```
+    python -m src.generator
 
-The first execution downloads:
+The first execution downloads `google/flan-t5-base`. Generation may take longer when running on a CPU.
 
-```text
-google/flan-t5-base
-```
+### Step 5: Run the Final Baseline and RAG Experiment
 
-Generation may take longer when running on a CPU.
+    python -m src.model_runner
 
-### Step 5: Run the Complete Baseline and RAG Pipeline
+The final experiment:
 
-The main Milestone 4 command is:
+- Runs seven biology test prompts
+- Generates one instruction-only baseline response for each prompt
+- Runs RAG with retrieval depths of `k = 1`, `k = 3`, and `k = 5`
+- Saves the retrieved passages and generated responses
+- Produces 28 total responses across four experimental conditions
+- Saves the results to `outputs/sample_outputs.json`
 
-```bash
-python3 src/model_runner.py
-```
+The retrieval depths are loaded from `configs/model_config.yaml`.
 
-The assignment command may also be used when the environment maps `python` to Python 3:
+### Step 6: Create the Evaluation Template
 
-```bash
-python src/model_runner.py
-```
+    python -m src.evaluation
 
-The script:
+This script converts the generated experiment outputs into a structured evaluation file containing fields for:
 
-- Loads the processed passage data
-- Loads passage metadata and embeddings
-- Loads pretrained FLAN-T5-base
-- Runs seven representative test cases
-- Generates an instruction-only baseline for each test case
-- Retrieves one passage for each query
-- Generates a RAG response using the retrieved passage
-- Saves the results under `outputs/`
+- Factual grounding
+- Relevance
+- Readability
+- Completeness
+- Usefulness
+- Reviewer name
+- Comments
 
-Expected output:
-
-```text
-Saved 7 results to outputs/sample_outputs.json
-```
-
-### Step 6: Create the Human-Evaluation Template
-
-```bash
-python3 src/evaluation.py
-```
-
-Expected output:
-
-```text
-Saved evaluation template to outputs/human_evaluation_template.csv
-```
+The resulting template is saved to `outputs/human_evaluation_template.csv`.
 
 ---
 
-## Reproducing the Current Results
+## Reproducing the Experiment
 
-To recreate all processed data, embeddings, generated outputs, and evaluation files, run:
+To reproduce the generated experiment outputs from the repository root, run the following commands in order:
 
-```bash
-python3 src/preprocessing.py
-python3 src/embeddings.py
-python3 src/model_runner.py
-python3 src/evaluation.py
-```
+    python -m src.preprocessing
+    python -m src.embeddings
+    python -m src.model_runner
+    python -m src.evaluation
 
-The commands must be run in this order because retrieval requires processed passages and generated embeddings.
+The commands must be run in this order because retrieval requires the processed passages and generated embeddings.
 
-After preprocessing and embedding generation are complete, the main inference pipeline can be rerun using:
+The pipeline will:
 
-```bash
-python3 src/model_runner.py
-```
+- Preprocess the two Biology LibreTexts source files
+- Create 22 overlapping passages
+- Generate 384-dimensional MiniLM embeddings
+- Prepare the passage embeddings for FAISS similarity search
+- Run seven biology prompts
+- Generate one instruction-only baseline response per prompt
+- Run RAG with `k = 1`, `k = 3`, and `k = 5`
+- Produce 28 total generated responses across four experimental conditions
+- Save generated outputs to `outputs/sample_outputs.json`
+- Create the evaluation template at `outputs/human_evaluation_template.csv`
 
-Because deterministic beam search is used, rerunning the same model version with the same inputs should produce consistent generation results.
+The final manual evaluation results used in the project are included in the repository:
+
+- `outputs/human_evaluation_reviewer1.csv`
+- `outputs/human_evaluation_reviewer2.csv`
+- `outputs/human_evaluation_combined_detailed.csv`
+- `outputs/human_evaluation_combined_summary.csv`
+
+These completed evaluation files contain the scores assigned by the two independent evaluators and are not automatically regenerated by the pipeline.
+
+The first run requires internet access to download the pretrained Hugging Face models. Later runs can use locally cached model files.
 
 ---
-
 ## Representative Test Cases
 
-The current `src/model_runner.py` runs seven representative test cases:
+The final `src/model_runner.py` evaluates seven introductory biology prompts:
 
-1. Cell membrane summary
-2. Plasma membrane flashcards
-3. Phospholipid-bilayer multiple-choice question
-4. Fluid mosaic model explanation
-5. Membrane protein definition
-6. Selective permeability explanation
-7. Diffusion explanation
+1. What is the purpose of the cell membrane?
+2. What is the basic structure of the plasma membrane?
+3. What does the fluid mosaic model describe?
+4. What are membrane proteins?
+5. What does selectively permeable mean?
+6. What is diffusion?
+7. Does passive transport require cellular energy?
 
-The current retrieval setting is:
+Each prompt is evaluated under four conditions:
 
-```text
-top_k = 1
-```
+- Instruction-only baseline
+- RAG with `k = 1`
+- RAG with `k = 3`
+- RAG with `k = 5`
+
+All final prompts request concise one- or two-sentence explanations. This design was selected because FLAN-T5-base was more reliable for short explanatory responses than for highly structured outputs such as multi-item flashcards or complete multiple-choice questions.
+
+Across seven prompts and four experimental conditions, the final experiment produces 28 total responses.
 
 ---
 
@@ -586,118 +480,59 @@ top_k = 1
 
 Generated files are stored under:
 
-```text
-outputs/
-```
+    outputs/
 
 ### `outputs/sample_outputs.json`
 
-This file contains seven representative inference results.
+This file contains the final experiment results for all seven biology prompts.
 
-Each result includes:
+For each prompt, it includes:
 
 - Task type
 - Student query
 - Generation instruction
-- Number of retrieved passages
-- Retrieved passage ID
-- Retrieved topic
-- Source filename
-- Retrieved passage text
-- Retrieval similarity score
-- Baseline output
-- RAG output
+- Instruction-only baseline output
+- RAG results for `k = 1`, `k = 3`, and `k = 5`
+- Retrieved passages for each retrieval depth
+- Generated RAG response for each retrieval depth
+
+Across seven prompts and four experimental conditions, this file contains 28 generated responses.
 
 ### `outputs/human_evaluation_template.csv`
 
-This file provides fields for human reviewers to score:
+This file provides the structured evaluation format used to score generated responses on:
 
 - Factual grounding
 - Relevance
 - Readability
 - Completeness
 - Usefulness
+- Reviewer name
 - Comments
 
-### `outputs/README.md`
+### `outputs/human_evaluation_reviewer1.csv`
 
-This file briefly explains what the generated output files contain and notes that the outputs are preliminary.
+This file contains the completed evaluation scores from the first evaluator.
 
----
+### `outputs/human_evaluation_reviewer2.csv`
 
-## Preliminary Results
+This file contains the completed evaluation scores from the second evaluator.
 
-The current pipeline successfully:
+### `outputs/human_evaluation_combined_detailed.csv`
 
-- Processed two biology source files
-- Created 22 overlapping passages
-- Generated embeddings with shape `(22, 384)`
-- Saved passage metadata for all 22 passages
-- Retrieved relevant passages using FAISS
-- Loaded pretrained `google/flan-t5-base`
-- Ran seven representative inference cases
-- Generated baseline responses without retrieval
-- Generated RAG responses using retrieved context
-- Saved all seven results to `outputs/sample_outputs.json`
-- Created a human-evaluation template
-- Ran successfully from the repository root on a CPU
-- Regenerated outputs using deterministic four-beam search
+This file combines the detailed evaluation results from both evaluators for all 28 responses.
 
-### Retrieval Results
+### `outputs/human_evaluation_combined_summary.csv`
 
-The selective-permeability query retrieved:
-
-```text
-passive_transport_001
-```
-
-with a similarity score of approximately:
-
-```text
-0.7586
-```
-
-The diffusion query retrieved:
-
-```text
-passive_transport_018
-```
-
-with a similarity score of approximately:
-
-```text
-0.7486
-```
-
-These results confirm that the updated FAISS index retrieves relevant passages from the newly added passive-transport source.
-
-### Initial Output Observations
-
-The retrieval component is functioning correctly, and retrieved passages are generally relevant to the student queries.
-
-Generation quality remains inconsistent despite the use of deterministic beam search.
-
-Observed results include:
-
-- The summary output included relevant membrane information but repeated a sentence
-- The flashcard output did not create three correctly formatted flashcards
-- The multiple-choice output did not include answer choices, a correct answer, or an explanation
-- The fluid mosaic output was relevant but shorter than requested
-- The membrane protein response included relevant source material but also included unnecessary carbohydrate details
-- The selective-permeability output was relevant but incomplete
-- The diffusion output did not fully answer the question even though the correct source passage was retrieved
-- Baseline outputs were frequently unrelated or factually weak
-- RAG outputs were generally more connected to the biology material than baseline outputs
-
-These findings demonstrate a functioning end-to-end RAG pipeline while showing that prompt following, answer completeness, and structured output formatting require further improvement.
+This file contains the final average evaluation scores summarized by experimental condition.
 
 ---
 
-## Evaluation Plan
+## Final Results
 
-Both team members will independently review selected baseline and RAG outputs.
+The final experiment compared an instruction-only FLAN-T5-base baseline with RAG using retrieval depths of `k = 1`, `k = 3`, and `k = 5`.
 
-Each output will be scored from 1 to 5 for:
+Seven biology prompts were evaluated under all four conditions, producing 28 total responses. Two independent evaluators scored each response from 1 to 5 for:
 
 - Factual grounding
 - Relevance
@@ -705,101 +540,127 @@ Each output will be scored from 1 to 5 for:
 - Completeness
 - Usefulness
 
-Multiple-choice questions will also be checked for:
+The final average scores were:
 
-- One clear correct answer
-- Plausible incorrect options
-- An explanation supported by the retrieved context
-- Correct use of the requested format
+| Condition | Grounding | Relevance | Readability | Completeness | Usefulness | Overall |
+|---|---:|---:|---:|---:|---:|---:|
+| Baseline | 1.43 | 2.57 | 3.79 | 1.43 | 1.29 | 2.10 |
+| RAG k=1 | 3.57 | 3.29 | 4.29 | 2.00 | 2.00 | 3.03 |
+| RAG k=3 | 4.21 | 3.86 | 4.21 | 2.86 | 3.21 | 3.67 |
+| RAG k=5 | 3.14 | 2.43 | 2.43 | 1.71 | 1.86 | 2.31 |
 
-Flashcards will be checked for:
+RAG with `k = 3` achieved the strongest overall performance with an average score of `3.67`. It also produced the highest average scores for factual grounding, relevance, completeness, and usefulness.
 
-- The requested number of flashcards
-- Clear terms
-- Accurate definitions
-- Support from the retrieved source passage
+RAG with `k = 1` improved substantially over the baseline and achieved the highest readability score of `4.29`.
 
-Large reviewer disagreements will be discussed before final results are summarized.
+Increasing retrieval depth to `k = 5` reduced performance. Several outputs became more repetitive, less focused, or less relevant, resulting in an overall score of `2.31`.
 
-The detailed evaluation rubric is available in:
+A representative example involved passive transport. The instruction-only baseline incorrectly stated that cellular energy was required. In contrast, the RAG `k = 3` response correctly explained that passive transport does not require cellular energy and that substances move from an area of higher concentration to an area of lower concentration.
 
-```text
-docs/evaluation_rubric.md
-```
+These results show that retrieval can improve factual grounding and educational usefulness, but they also demonstrate that retrieving more passages does not automatically improve generation quality.
+
+---
+
+## Evaluation Procedure
+
+The final experiment used independent manual evaluation to assess the quality of generated responses.
+
+Two evaluators independently reviewed all 28 outputs produced across the four experimental conditions:
+
+- Instruction-only baseline
+- RAG with `k = 1`
+- RAG with `k = 3`
+- RAG with `k = 5`
+
+Each response was scored from 1 to 5 on the following criteria:
+
+- Factual grounding
+- Relevance
+- Readability
+- Completeness
+- Usefulness
+
+Higher scores indicate stronger performance.
+
+The two evaluator scores were combined and averaged to produce the final results summarized in `outputs/human_evaluation_combined_summary.csv`.
+
+Detailed evaluation data is stored in:
+
+- `outputs/human_evaluation_reviewer1.csv`
+- `outputs/human_evaluation_reviewer2.csv`
+- `outputs/human_evaluation_combined_detailed.csv`
+- `outputs/human_evaluation_combined_summary.csv`
+
+The evaluation focused on concise explanatory responses because FLAN-T5-base was more reliable for short explanations than for highly structured outputs such as multi-item flashcards or complete multiple-choice questions.
+
+The detailed scoring criteria are documented in docs/evaluation_rubric.md.
 
 ---
 
 ## Documentation
 
-Additional project documentation is stored under:
-
-```text
-docs/
-```
+Additional project documentation is stored under docs/.
 
 The documentation includes:
 
-- `evaluation_rubric.md` — criteria for reviewing generated outputs
-- `method_selection.md` — explanation of model and method selection
-- `preliminary_results.md` — supporting notes about preliminary experiments
+- `evaluation_rubric.md` — scoring criteria used to evaluate generated responses
+- `method_selection.md` — explanation of model and retrieval-method selection
+- `preliminary_results.md` — notes from earlier development and testing
+
+Final generated outputs and evaluation results are stored under outputs/.
+
+The main README provides the final setup instructions, reproduction steps, experiment description, results, limitations, and project structure.
 
 ---
 
 ## Configuration
 
-Model, retrieval, preprocessing, and path settings are documented in:
+Model, retrieval, preprocessing, generation, and file-path settings are centralized in:
 
-```text
-configs/model_config.yaml
-```
+    configs/model_config.yaml
 
-The current configuration file includes:
+The configuration file is loaded by the pipeline at runtime and controls the main experimental settings used by the project.
 
-```yaml
-generator:
-  model_name: google/flan-t5-base
-  max_input_length: 1024
-  max_new_tokens: 250
-  num_beams: 4
-  do_sample: false
-  repetition_penalty: 1.2
-  no_repeat_ngram_size: 3
-  early_stopping: true
+Current configuration:
 
-retrieval:
-  embedding_model: sentence-transformers/all-MiniLM-L6-v2
-  similarity_metric: cosine
-  current_top_k: 1
-  planned_top_k_values:
-    - 1
-    - 3
-    - 5
+    generator:
+      model_name: google/flan-t5-base
+      max_input_length: 1024
+      max_new_tokens: 250
+      num_beams: 1
+      do_sample: false
+      repetition_penalty: 1.0
+      no_repeat_ngram_size: 0
+      early_stopping: false
 
-preprocessing:
-  chunk_size_words: 250
-  chunk_overlap_words: 50
+    retrieval:
+      embedding_model: sentence-transformers/all-MiniLM-L6-v2
+      similarity_metric: cosine
+      current_top_k: 1
+      planned_top_k_values:
+        - 1
+        - 3
+        - 5
 
-paths:
-  raw_data: data/raw
-  processed_data: data/processed/passages.jsonl
-  passage_metadata: data/processed/passage_metadata.json
-  embeddings: data/processed/embeddings.npy
-  output_file: outputs/sample_outputs.json
-```
+    preprocessing:
+      chunk_size_words: 250
+      chunk_overlap_words: 50
 
-The YAML file currently serves as a centralized configuration reference.
+    paths:
+      raw_data: data/raw
+      processed_data: data/processed/passages.jsonl
+      passage_metadata: data/processed/passage_metadata.json
+      embeddings: data/processed/embeddings.npy
+      output_file: outputs/sample_outputs.json
+      evaluation_template: outputs/human_evaluation_template.csv
 
-The executable Python scripts still define and use their settings directly in code rather than loading all values from the YAML file at runtime.
-
-The YAML values have been aligned with the current script settings so that the documented configuration accurately reflects the Milestone 4 pipeline.
-
-Loading all settings dynamically from the configuration file remains a possible future improvement.
+The final experiment uses the `planned_top_k_values` setting to evaluate retrieval depths of `k = 1`, `k = 3`, and `k = 5`.
 
 ---
 
 ## Reproducibility Notes
 
-The complete pipeline was tested using:
+The final project environment included:
 
 - Python 3.9.7
 - macOS
@@ -807,40 +668,58 @@ The complete pipeline was tested using:
 - PyTorch 2.2.2
 - NumPy 1.26.4
 - Transformers 4.57.6
-- Sentence Transformers 5.1.2
-- FAISS CPU 1.13.0
+- Sentence Transformers
+- FAISS CPU
+- PyYAML 6.0.3
 
 The workflow was tested inside a Python virtual environment.
 
-The first execution downloads pretrained models from Hugging Face. Internet access is required during the initial model downloads.
+The first execution requires internet access to download the pretrained Hugging Face models used by the project:
 
-FLAN-T5-base can run on a CPU, but generation is slower than it would be with a compatible GPU.
+- `google/flan-t5-base`
+- `sentence-transformers/all-MiniLM-L6-v2`
 
-The embedding file is generated locally and must be rebuilt after cloning the repository.
+After the models have been downloaded, later runs can use locally cached model files.
 
-Deterministic beam search is used instead of random sampling to improve consistency across repeated runs.
+FLAN-T5-base can run on a CPU, although generation is slower than it would be on a compatible GPU.
+
+The embedding file `data/processed/embeddings.npy` is generated locally and is not committed to the repository. It can be recreated by running:
+
+    python -m src.preprocessing
+    python -m src.embeddings
+
+The final generation configuration uses greedy decoding with sampling disabled to reduce generation variability. Exact outputs may still depend on the software environment, model version, and hardware.
+
+All major experiment settings are controlled through `configs/model_config.yaml`, including:
+
+- Generative model
+- Embedding model
+- Retrieval depths
+- Chunk size
+- Chunk overlap
+- Generation settings
+- File paths
+
+To reproduce the generated experiment outputs, follow the commands listed in the `Reproducing the Experiment` section.
 
 ---
 
 ## Current Limitations
 
-- The dataset currently contains only two introductory biology source files
-- The current content is limited mainly to cell membranes and passive transport
-- The final project requires additional source pages and biology topics
-- Retrieval currently uses one passage per query
-- Full comparisons of `k = 1`, `k = 3`, and `k = 5` remain planned
-- FLAN-T5-base does not consistently follow requested output formats
-- Some generated responses are incomplete
-- Some generated responses are overly brief or factually weak
-- Beam search improves reproducibility but does not guarantee complete or correctly formatted answers
-- Baseline generation may produce unrelated or incorrect content
-- Generated study materials require human review
-- Lightweight personalization has not yet been fully implemented
-- Current evaluation is preliminary
-- CPU inference may be slow
-- The embedding index must be rebuilt whenever the passage dataset changes
-- The Python scripts do not yet load all settings directly from `model_config.yaml`
-- The reusable helper module is not yet fully integrated into `model_runner.py`
+The final system demonstrates a working proof of concept, but several limitations remain:
+
+- The source material contains only two Biology LibreTexts documents and 22 processed passages
+- Topic coverage is limited mainly to cell membranes and passive transport
+- The final evaluation uses only seven biology prompts
+- The results therefore reflect a small in-domain experiment rather than performance across a full biology curriculum
+- FLAN-T5-base is more reliable for concise explanations than for highly structured outputs such as multi-item flashcards or complete multiple-choice questions
+- Some responses become repetitive, incomplete, or less focused when more retrieved context is provided
+- Retrieval with `k = 5` performed worse than `k = 3`, showing that additional context can introduce noise
+- The maximum input length of 1024 tokens may limit how much retrieved context can be used effectively
+- CPU inference can be slow
+- The embedding index must be rebuilt whenever the source material or chunking settings change
+- Personalization was not implemented or evaluated in the final proof of concept
+- The evaluation used two independent evaluators, so larger studies with more prompts and evaluators would provide stronger evidence
 
 ---
 
@@ -850,80 +729,65 @@ Deterministic beam search is used instead of random sampling to improve consiste
 
 Run:
 
-```bash
-python3 src/preprocessing.py
-python3 src/embeddings.py
-```
+    python -m src.preprocessing
+    python -m src.embeddings
 
 Then run:
 
-```bash
-python3 src/model_runner.py
-```
+    python -m src.model_runner
 
 ### New Source Material Is Not Being Retrieved
 
-Adding a raw text file does not automatically update the embedding index.
+Adding or changing a raw text file does not automatically rebuild the embedding index.
 
 Run:
 
-```bash
-python3 src/preprocessing.py
-python3 src/embeddings.py
-python3 src/model_runner.py
-```
+    python -m src.preprocessing
+    python -m src.embeddings
+    python -m src.model_runner
 
-### The Pipeline Saves Fewer Than Seven Results
+### The Pipeline Produces Unexpected Results
 
-Confirm that `src/model_runner.py` contains all seven test cases.
+Confirm that `configs/model_config.yaml` contains the intended settings for:
+
+- Generator model
+- Embedding model
+- Retrieval depths
+- Chunk size
+- Chunk overlap
+- Generation parameters
 
 Then rerun:
 
-```bash
-python3 src/model_runner.py
-```
-
-The expected final message is:
-
-```text
-Saved 7 results to outputs/sample_outputs.json
-```
-
-### TensorFlow CPU Feature Message
-
-A message similar to the following may appear:
-
-```text
-This TensorFlow binary is optimized to use available CPU instructions
-```
-
-This is informational and does not mean that the pipeline failed.
-
-### `torch==2.8.0` Cannot Be Installed
-
-The tested project environment uses:
-
-```text
-torch==2.2.2
-```
-
-Install the versions listed in:
-
-```text
-requirements.txt
-```
-
-### `TypeError` Involving `str | None`
-
-The `str | None` type-hint syntax requires Python 3.10 or newer.
-
-The project uses Python 3.9-compatible syntax where needed.
+    python -m src.model_runner
 
 ### Model Download Takes a Long Time
 
-The first run downloads pretrained models from Hugging Face.
+The first run downloads pretrained models from Hugging Face:
 
-FLAN-T5-base is a relatively large model, and CPU execution may be slow. Later executions should use locally cached model files.
+- `google/flan-t5-base`
+- `sentence-transformers/all-MiniLM-L6-v2`
+
+Later runs should use locally cached model files.
+
+### CPU Generation Is Slow
+
+FLAN-T5-base can run on a CPU, but generation may take longer than on a compatible GPU. This is expected behavior.
+
+### A Dependency Cannot Be Installed
+
+Install the exact dependencies listed in:
+
+    requirements.txt
+
+The tested environment uses:
+
+    torch==2.2.2
+    numpy==1.26.4
+    transformers==4.57.6
+    PyYAML==6.0.3
+
+If installation problems occur, confirm that the active Python environment is compatible with the versions listed in `requirements.txt`.
 
 ---
 
