@@ -56,7 +56,7 @@ The project follows a Retrieval-Augmented Generation architecture.
 ### 2. Text Preprocessing
 
 - Load raw `.txt` source files
-- Normalize whitespace and remove formatting artifacts
+- Normalize repeated whitespace in the source text
 - Split each document into overlapping passages
 - Assign each passage a unique ID and topic
 - Save processed passages in JSON Lines format
@@ -155,8 +155,6 @@ The implementation uses:
 - Sentence Transformers
 - FAISS
 - NumPy
-- pandas
-- Beautiful Soup
 - PyYAML
 
 ---
@@ -714,7 +712,7 @@ The final system demonstrates a working proof of concept, but several limitation
 - Retrieval with `k = 5` performed worse than `k = 3`, showing that additional context can introduce noise
 - The maximum input length of 1024 tokens may limit how much retrieved context can be used effectively
 - CPU inference can be slow
-- The embedding index must be rebuilt whenever the source material or chunking settings change
+- Processed passages and embeddings must be regenerated whenever the source material or chunking settings change
 - Personalization was not implemented or evaluated in the final proof of concept
 - The evaluation used two independent evaluators, so larger studies with more prompts and evaluators would provide stronger evidence
 
